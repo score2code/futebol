@@ -300,14 +300,8 @@ export default function App() {
           </p>
 
           <p style={styles.pWarning}>
-            <span style={{ fontWeight: 700 }}>Atenção:</span> Este é um protótipo beta. Anote suas escolhas em caso de falha.
-          </p>
-
-          <p style={styles.pWarning}>
-            Você pode escolher entre **Resultado** OU **Dupla Chance** (não os dois) + **Gols**.
-          </p>
-
-          <p style={styles.pWarning}>
+            <span style={{ fontWeight: 700 }}>Atenção:</span> Este é um protótipo beta. Anote suas escolhas em caso de falha.<br />
+            Você pode escolher entre **Resultado** OU **Dupla Chance** (não os dois) + **Gols**.<br /> 
             BOA SORTE! Envie pelo site até as 15h do dia 01/11.
           </p>
         </header>
@@ -437,7 +431,7 @@ export default function App() {
                       <h3 style={styles.ultimosTitle}>
                         {times[0]} Últimos Jogos:
                       </h3>
-                      <ul style={styles.ultimosList} role="list">
+                      <ul style={styles.ultimosList}>
                         {(ultimos[times[0]] || []).map((item, i) => (
                           <li key={i} style={styles.ultimosListItem}>
                             <span style={getEmojiStyle(item.resultado)}>
@@ -455,7 +449,7 @@ export default function App() {
                       <h3 style={styles.ultimosTitle}>
                         {times[1]} Últimos Jogos:
                       </h3>
-                      <ul style={styles.ultimosList} role="list">
+                      <ul style={styles.ultimosList}>
                         {(ultimos[times[1]] || []).map((item, i) => (
                           <li key={i} style={styles.ultimosListItem}>
                             <span style={getEmojiStyle(item.resultado)}>
@@ -498,7 +492,7 @@ export default function App() {
         )}
         <section style={styles.meusPalpites}>
           <h2 style={styles.meusPalpitesTitle}>Meus Palpites:</h2>
-          <ul style={styles.meusPalpitesList} role="list">
+          <ul style={styles.meusPalpitesList}>
             {Object.entries(formData).map(([key, e], i) => (
               <li key={i} style={styles.meusPalpitesListItem}>
                 {e.dia}, {e.hora}: <b>{e.times[0]}</b> x <b>{e.times[1]}</b>
