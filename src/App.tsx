@@ -817,6 +817,29 @@ const parsePlacarItem = (placar: string): { golsPro: number; golsContra: number;
   return { golsPro: parseInt(m[1], 10), golsContra: parseInt(m[2], 10), adversario: m[3] };
 };
 
+// Parse de data no formato 'dd/MM' assumindo um ano fornecido
+const parseDdMm = (txt: string, year: number): Date | null => {
+  const m = txt.match(/^\s*(\d{2})\/(\d{2})\s*$/);
+  if (!m) return null;
+  const day = parseInt(m[1], 10);
+  const month = parseInt(m[2], 10) - 1;
+  const d = new Date(year, month, day);
+  return isNaN(d.getTime()) ? null : d;
+};
+
+// Obtém a data mais recente (dd/MM) de uma lista de históricos usando o ano da partida
+const obterDataMaisRecente = (lst: HistoricoItem[] = [], year: number): string | null => {
+  let best: { d: Date; txt: string } | null = null;
+  for (const item of lst) {
+    const d = parseDdMm(item.data, year);
+    if (!d) continue;
+    if (!best || d > best.d) {
+      best = { d, txt: item.data };
+    }
+  }
+  return best ? best.txt : null;
+};
+
 // ----------------------------------------------------
 // COMPONENTE CARD JOGO (Accordion)
 // ----------------------------------------------------
@@ -852,6 +875,9 @@ const CardJogo: React.FC<CardJogoProps> = ({
   const ultimos: UltimosPorTime = jogo.ultimos || {};
 
   const palpiteAtual = formData[jogoKey];
+  const anoPartida = new Date(dia).getFullYear();
+  const atualizadoAteT1 = obterDataMaisRecente(ultimos[times[0]] || [], anoPartida);
+  const atualizadoAteT2 = obterDataMaisRecente(ultimos[times[1]] || [], anoPartida);
 
   const getEmojiStyle = (resultado: string): React.CSSProperties => {
     if (resultado === "V") return styles.emojiV;
@@ -1006,7 +1032,7 @@ const CardJogo: React.FC<CardJogoProps> = ({
           {/* Histórico Time 1 */}
           <div style={styles.historicoTime}>
             <h3 style={styles.ultimosTitle}>
-              {jogo.times[0].nome} ({jogo.times[0].posicao}º) Últimos Jogos:
+              {jogo.times[0].nome} ({jogo.times[0].posicao}º) Últimos Jogos{atualizadoAteT1 ? ` (até ${atualizadoAteT1})` : ''}:
             </h3>
             <ul style={styles.ultimosList}>
               {(ultimos[times[0]] || []).map((item, i) => (
@@ -1046,7 +1072,7 @@ const CardJogo: React.FC<CardJogoProps> = ({
           {/* Histórico Time 2 */}
           <div style={styles.historicoTime}>
             <h3 style={styles.ultimosTitle}>
-              {jogo.times[1].nome} ({jogo.times[1].posicao}º) Últimos Jogos:
+              {jogo.times[1].nome} ({jogo.times[1].posicao}º) Últimos Jogos{atualizadoAteT2 ? ` (até ${atualizadoAteT2})` : ''}:
             </h3>
             <ul style={styles.ultimosList}>
               {(ultimos[times[1]] || []).map((item, i) => (

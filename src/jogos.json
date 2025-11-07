@@ -11,15 +11,15 @@
       "linhas": {"golsPadrao": 2.5, "bttsDisponivel": true},
       "ultimos": {
         "Sport Recife": [
+          {"resultado": "D", "placar": "0x2 Juventude", "data": "05/11"},
+          {"resultado": "D", "placar": "0x3 Flamengo", "data": "01/11"},
           {"resultado": "D", "placar": "1x2 Mirassol", "data": "25/10"},
           {"resultado": "E", "placar": "0x0 Bahia", "data": "21/10"},
-          {"resultado": "V", "placar": "1x0 Fortaleza", "data": "16/10"},
-          {"resultado": "D", "placar": "2x3 Atlético MG", "data": "12/10"},
-          {"resultado": "E", "placar": "1x1 Grêmio RS", "data": "08/10"}
+          {"resultado": "V", "placar": "1x0 Fortaleza", "data": "16/10"}
         ],
         "Atlético MG": [
-          {"resultado": "V", "placar": "3x1 Ind. Valle", "data": "28/10"},
-          {"resultado": "E", "placar": "1x1 Bahia", "data": "24/10"},
+          {"resultado": "V", "placar": "3x0 Bahia", "data": "05/11"},
+          {"resultado": "E", "placar": "0x0 Internacional RS", "data": "02/11"},
           {"resultado": "V", "placar": "2x0 Sport Recife", "data": "20/10"},
           {"resultado": "D", "placar": "1x2 Palmeiras", "data": "16/10"},
           {"resultado": "E", "placar": "2x2 Fluminense", "data": "12/10"}
@@ -37,18 +37,18 @@
       "linhas": {"golsPadrao": 2.5, "bttsDisponivel": true},
       "ultimos": {
         "Vasco da Gama": [
+          {"resultado": "D", "placar": "0x3 Botafogo RJ", "data": "05/11"},
           {"resultado": "V", "placar": "3x0 RB Bragantino", "data": "26/10"},
           {"resultado": "D", "placar": "0x2 Flamengo", "data": "21/10"},
           {"resultado": "E", "placar": "1x1 Mirassol", "data": "18/10"},
-          {"resultado": "D", "placar": "0x1 Juventude", "data": "16/10"},
-          {"resultado": "E", "placar": "2x2 Corinthians", "data": "12/10"}
+          {"resultado": "D", "placar": "0x1 Juventude", "data": "16/10"}
         ],
         "Juventude": [
+          {"resultado": "V", "placar": "2x0 Sport Recife", "data": "05/11"},
+          {"resultado": "D", "placar": "0x2 Palmeiras", "data": "02/11"},
           {"resultado": "D", "placar": "1x3 Grêmio RS", "data": "26/10"},
           {"resultado": "E", "placar": "1x1 São Paulo", "data": "21/10"},
-          {"resultado": "V", "placar": "1x0 Vasco da Gama", "data": "16/10"},
-          {"resultado": "D", "placar": "0x3 Atlético MG", "data": "12/10"},
-          {"resultado": "V", "placar": "2x1 Bahia", "data": "08/10"}
+          {"resultado": "V", "placar": "1x0 Vasco da Gama", "data": "16/10"}
         ]
       }
     },
@@ -63,18 +63,18 @@
       "linhas": {"golsPadrao": 2.5, "bttsDisponivel": true},
       "ultimos": {
         "Internacional RS": [
-          {"resultado": "V", "placar": "7x0 São Gabriel", "data": "29/10"},
+          {"resultado": "D", "placar": "0x1 Vitória BA", "data": "05/11"},
+          {"resultado": "E", "placar": "0x0 Atlético MG", "data": "02/11"},
           {"resultado": "E", "placar": "1x1 Grêmio RS", "data": "25/10"},
           {"resultado": "D", "placar": "0x2 Flamengo", "data": "21/10"},
-          {"resultado": "V", "placar": "2x0 Juventude", "data": "16/10"},
-          {"resultado": "E", "placar": "2x2 Corinthians", "data": "12/10"}
+          {"resultado": "V", "placar": "2x0 Juventude", "data": "16/10"}
         ],
         "Bahia": [
+          {"resultado": "D", "placar": "0x3 Atlético MG", "data": "05/11"},
+          {"resultado": "V", "placar": "2x1 RB Bragantino", "data": "02/11"},
           {"resultado": "D", "placar": "0x2 São Paulo", "data": "25/10"},
           {"resultado": "E", "placar": "0x0 Sport Recife", "data": "21/10"},
-          {"resultado": "V", "placar": "2x0 Fortaleza", "data": "16/10"},
-          {"resultado": "D", "placar": "0x2 Santos", "data": "12/10"},
-          {"resultado": "V", "placar": "3x2 Vitória BA", "data": "08/10"}
+          {"resultado": "V", "placar": "2x0 Fortaleza", "data": "16/10"}
         ]
       }
     },
@@ -89,18 +89,18 @@
       "linhas": {"golsPadrao": 2.5, "bttsDisponivel": true},
       "ultimos": {
         "São Paulo": [
+          {"resultado": "E", "placar": "2x2 Flamengo", "data": "05/11"},
           {"resultado": "V", "placar": "2x0 Bahia", "data": "25/10"},
           {"resultado": "E", "placar": "1x1 Juventude", "data": "21/10"},
           {"resultado": "V", "placar": "2x0 Santos", "data": "17/10"},
-          {"resultado": "D", "placar": "0x2 Flamengo", "data": "13/10"},
-          {"resultado": "E", "placar": "1x1 Internacional RS", "data": "09/10"}
+          {"resultado": "D", "placar": "0x2 Flamengo", "data": "13/10"}
         ],
         "RB Bragantino": [
-          {"resultado": "D", "placar": "0x3 Vasco da Gama", "data": "26/10"},
+          {"resultado": "V", "placar": "2x1 Corinthians", "data": "05/11"},
+          {"resultado": "D", "placar": "1x2 Bahia", "data": "02/11"},
           {"resultado": "D", "placar": "0x1 Palmeiras", "data": "22/10"},
           {"resultado": "E", "placar": "2x2 Flamengo", "data": "18/10"},
-          {"resultado": "V", "placar": "1x0 Cruzeiro MG", "data": "13/10"},
-          {"resultado": "D", "placar": "0x2 Santos", "data": "09/10"}
+          {"resultado": "V", "placar": "1x0 Cruzeiro MG", "data": "13/10"}
         ]
       }
     }
@@ -117,11 +117,11 @@
       "linhas": {"golsPadrao": 2.5, "bttsDisponivel": true},
       "ultimos": {
         "Corinthians": [
+          {"resultado": "D", "placar": "1x2 RB Bragantino", "data": "05/11"},
           {"resultado": "D", "placar": "0x1 Vitória BA", "data": "25/10"},
           {"resultado": "E", "placar": "1x1 Palmeiras", "data": "21/10"},
           {"resultado": "V", "placar": "2x1 Fluminense", "data": "16/10"},
-          {"resultado": "D", "placar": "0x1 RB Bragantino", "data": "12/10"},
-          {"resultado": "V", "placar": "1x0 Bahia", "data": "08/10"}
+          {"resultado": "D", "placar": "0x1 RB Bragantino", "data": "12/10"}
         ],
         "Ceará": [
           {"resultado": "D", "placar": "0x1 Fluminense", "data": "29/10"},
@@ -143,18 +143,18 @@
       "linhas": {"golsPadrao": 2.5, "bttsDisponivel": true},
       "ultimos": {
         "Cruzeiro MG": [
+          {"resultado": "V", "placar": "1x0 Grêmio RS", "data": "05/11"},
+          {"resultado": "V", "placar": "3x1 Vitória BA", "data": "01/11"},
           {"resultado": "E", "placar": "0x0 Palmeiras", "data": "26/10"},
-          {"resultado": "V", "placar": "1x0 Fortaleza", "data": "22/10"},
-          {"resultado": "D", "placar": "0x1 RB Bragantino", "data": "18/10"},
-          {"resultado": "E", "placar": "1x1 Atlético MG", "data": "15/10"},
-          {"resultado": "V", "placar": "2x0 Santos", "data": "11/10"}
+          {"resultado": "V", "placar": "1x0 Fortaleza", "data": "18/10"},
+          {"resultado": "E", "placar": "1x1 Atlético MG", "data": "15/10"}
         ],
         "Fluminense": [
+          {"resultado": "V", "placar": "1x0 Mirassol", "data": "06/11"},
           {"resultado": "V", "placar": "1x0 Ceará", "data": "29/10"},
           {"resultado": "V", "placar": "2x0 Cruzeiro MG", "data": "25/10"},
           {"resultado": "E", "placar": "1x1 Corinthians", "data": "19/10"},
-          {"resultado": "D", "placar": "0x1 Palmeiras", "data": "13/10"},
-          {"resultado": "V", "placar": "3x2 Sport Recife", "data": "09/10"}
+          {"resultado": "D", "placar": "0x1 Palmeiras", "data": "13/10"}
         ]
       }
     },
@@ -169,18 +169,18 @@
       "linhas": {"golsPadrao": 2.5, "bttsDisponivel": true},
       "ultimos": {
         "Vitória BA": [
+          {"resultado": "V", "placar": "1x0 Internacional RS", "data": "05/11"},
           {"resultado": "V", "placar": "1x0 Corinthians", "data": "25/10"},
           {"resultado": "D", "placar": "0x2 Botafogo RJ", "data": "19/10"},
           {"resultado": "V", "placar": "1x0 Mirassol", "data": "14/10"},
-          {"resultado": "D", "placar": "1x3 Bahia", "data": "09/10"},
-          {"resultado": "V", "placar": "2x1 RB Bragantino", "data": "04/10"}
+          {"resultado": "D", "placar": "1x3 Bahia", "data": "09/10"}
         ],
         "Botafogo RJ": [
+          {"resultado": "V", "placar": "3x0 Vasco da Gama", "data": "05/11"},
+          {"resultado": "E", "placar": "0x0 Mirassol", "data": "01/11"},
           {"resultado": "E", "placar": "2x2 Santos", "data": "26/10"},
           {"resultado": "V", "placar": "3x1 Bahia", "data": "22/10"},
-          {"resultado": "D", "placar": "1x2 Palmeiras", "data": "18/10"},
-          {"resultado": "V", "placar": "2x0 Vitória BA", "data": "14/10"},
-          {"resultado": "D", "placar": "1x3 Ceará", "data": "09/10"}
+          {"resultado": "D", "placar": "1x2 Palmeiras", "data": "18/10"}
         ]
       }
     },
@@ -195,18 +195,18 @@
       "linhas": {"golsPadrao": 2.5, "bttsDisponivel": true},
       "ultimos": {
         "Flamengo": [
+          {"resultado": "E", "placar": "2x2 São Paulo", "data": "05/11"},
+          {"resultado": "V", "placar": "3x0 Sport Recife", "data": "01/11"},
           {"resultado": "D", "placar": "0x1 Fortaleza", "data": "25/10"},
-          {"resultado": "V", "placar": "2x0 Vasco da Gama", "data": "21/10"},
-          {"resultado": "E", "placar": "2x2 RB Bragantino", "data": "18/10"},
-          {"resultado": "V", "placar": "2x0 Palmeiras", "data": "14/10"},
-          {"resultado": "E", "placar": "1x1 Ceará", "data": "10/10"}
+          {"resultado": "V", "placar": "3x2 Palmeiras", "data": "19/10"},
+          {"resultado": "V", "placar": "3x0 Botafogo RJ", "data": "15/10"}
         ],
         "Santos": [
-          {"resultado": "E", "placar": "2x2 Botafogo", "data": "26/10"},
-          {"resultado": "D", "placar": "0x1 EC Vitória", "data": "20/10"},
+          {"resultado": "D", "placar": "0x2 Palmeiras", "data": "06/11"},
+          {"resultado": "E", "placar": "2x2 Botafogo RJ", "data": "26/10"},
+          {"resultado": "D", "placar": "0x1 Vitória BA", "data": "20/10"},
           {"resultado": "V", "placar": "3x1 Corinthians", "data": "15/10"},
-          {"resultado": "D", "placar": "0x3 Ceará SC", "data": "05/10"},
-          {"resultado": "E", "placar": "1x1 Grêmio", "data": "01/10"}
+          {"resultado": "D", "placar": "0x3 Ceará", "data": "05/10"}
         ]
       }
     },
@@ -221,18 +221,18 @@
       "linhas": {"golsPadrao": 2.5, "bttsDisponivel": true},
       "ultimos": {
         "Mirassol": [
+          {"resultado": "D", "placar": "0x1 Fluminense", "data": "06/11"},
+          {"resultado": "E", "placar": "0x0 Botafogo RJ", "data": "01/11"},
           {"resultado": "V", "placar": "2x1 Sport Recife", "data": "25/10"},
-          {"resultado": "D", "placar": "0x3 Flamengo", "data": "21/10"},
-          {"resultado": "E", "placar": "1x1 Vasco da Gama", "data": "18/10"},
-          {"resultado": "E", "placar": "0x0 Cruzeiro MG", "data": "14/10"},
-          {"resultado": "V", "placar": "1x0 Fluminense", "data": "09/10"}
+          {"resultado": "V", "placar": "3x0 São Paulo", "data": "19/10"},
+          {"resultado": "V", "placar": "3x1 Internacional RS", "data": "15/10"}
         ],
         "Palmeiras": [
-          {"resultado": "V", "placar": "4x0 LDU", "data": "30/10"},
+          {"resultado": "V", "placar": "2x0 Santos", "data": "06/11"},
+          {"resultado": "V", "placar": "2x0 Juventude", "data": "02/11"},
           {"resultado": "E", "placar": "0x0 Cruzeiro MG", "data": "26/10"},
-          {"resultado": "V", "placar": "1x0 RB Bragantino", "data": "22/10"},
-          {"resultado": "E", "placar": "1x1 Corinthians", "data": "18/10"},
-          {"resultado": "D", "placar": "0x2 Flamengo", "data": "14/10"}
+          {"resultado": "V", "placar": "5x1 RB Bragantino", "data": "15/10"},
+          {"resultado": "D", "placar": "2x3 Flamengo", "data": "19/10"}
         ]
       }
     },
@@ -254,11 +254,11 @@
           {"resultado": "D", "placar": "0x2 Palmeiras", "data": "06/10"}
         ],
         "Grêmio RS": [
+          {"resultado": "D", "placar": "0x1 Cruzeiro MG", "data": "05/11"},
           {"resultado": "V", "placar": "3x1 Juventude", "data": "26/10"},
           {"resultado": "E", "placar": "1x1 Internacional RS", "data": "22/10"},
           {"resultado": "D", "placar": "0x1 Palmeiras", "data": "18/10"},
-          {"resultado": "V", "placar": "2x1 Bahia", "data": "13/10"},
-          {"resultado": "D", "placar": "1x3 Santos", "data": "09/10"}
+          {"resultado": "V", "placar": "2x1 Bahia", "data": "13/10"}
         ]
       }
     }
