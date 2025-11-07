@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import jogosData from "./jogos.json";
 
 // ----------------------------------------------------
@@ -14,6 +14,9 @@ type Partida = {
   hora: string;
   times: [TimeComPosicao, TimeComPosicao];
   ultimos: UltimosPorTime;
+  campeonato?: string;
+  rodada?: number;
+  linhas?: { golsPadrao?: number; bttsDisponivel?: boolean };
 };
 
 type JogosPorDia = {
@@ -27,6 +30,8 @@ type HistoricoItem = {
   resultado: string;
   placar: string;
   data: string;
+  // opcional: indica se o time jogou em casa ou fora
+  local?: "casa" | "fora";
 };
 
 type UltimosPorTime = {
@@ -61,227 +66,488 @@ const styles: { [key: string]: React.CSSProperties } = {
   // Cores Base: #1A1E27 (Fundo Escuro), #282C37 (Cards), #5AD2F6 (Azul Primário), #FFFFFF (Texto)
   app: {
     fontFamily: "system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif",
-    background: "#1A1E27", // Cor de fundo mais sóbria
+    background: "linear-gradient(180deg, #0A0F14 0%, #0F1624 100%)",
     minHeight: "100vh",
+    boxSizing: "border-box",
   },
   main: {
-    maxWidth: 800, // Aumentei um pouco a largura
+    maxWidth: 860,
     margin: "0 auto",
-    padding: "30px 20px", // Espaçamento maior
+    padding: "28px 20px 88px", // Espaçamento ajustado e extra no bottom para a barra fixa
   },
   // --- HEADER ---
   header: {
-    background: "#282C37", // Card de fundo mais escuro
-    borderRadius: 16,
-    padding: "30px",
-    margin: "0 0 30px",
-    boxShadow: "0 6px 20px rgba(0, 0, 0, 0.2)",
-    borderTop: "4px solid #5AD2F6", // Detalhe de cor primária
+    background: "linear-gradient(180deg, #111827 0%, #0D1117 100%)",
+    borderRadius: 20,
+    padding: "24px",
+    margin: "0 0 24px",
+    boxShadow: "0 12px 36px rgba(0, 0, 0, 0.45)",
+    borderTop: "4px solid #20C6ED",
   },
   h1: {
-    color: "#5AD2F6",
-    fontSize: "2.4rem", // Aumentei
-    fontWeight: 800, // Deixei mais bold
+    fontSize: "2.7rem",
+    fontWeight: 900,
     letterSpacing: "0.01em",
-    marginBottom: 8,
+    marginBottom: 10,
+    backgroundImage: "linear-gradient(90deg, #8A5CF6 0%, #20C6ED 100%)",
+    WebkitBackgroundClip: "text",
+    backgroundClip: "text",
+    WebkitTextFillColor: "transparent",
   },
   pHeader: {
-    color: "#C4C8D2", // Texto mais claro para bom contraste
-    fontSize: "1.1rem",
+    color: "#D5DCE8",
+    fontSize: "1.12rem",
     marginTop: 0,
     fontWeight: 500,
-    lineHeight: 1.5,
+    lineHeight: 1.55,
   },
   pWarning: {
     color: "#F6E0A6", // Amarelo/verde suave para avisos
-    fontSize: "0.95rem",
+    fontSize: "0.98rem",
     marginTop: 15,
-    fontWeight: 500,
-    lineHeight: 1.4,
+    fontWeight: 600,
+    lineHeight: 1.45,
     borderLeft: "3px solid #F6E0A6",
     paddingLeft: 10,
     backgroundColor: "rgba(246, 224, 166, 0.05)",
-    padding: "8px 10px",
-    borderRadius: 6
+    padding: "10px 12px",
+    borderRadius: 8
   },
   // --- CARD DE JOGO (BASE) ---
   sectionTitle: {
     color: "#E1E7F1",
-    fontWeight: 700,
-    fontSize: "1.3rem", // Mais destaque
-    borderBottom: "2px solid #3A404F",
-    marginBottom: 20,
-    marginTop: 35,
-    paddingBottom: 8,
-    letterSpacing: "0.015em",
+    fontWeight: 800,
+    fontSize: "1.35rem",
+    borderBottom: "2px solid #32394B",
+    marginBottom: 22,
+    marginTop: 34,
+    paddingBottom: 10,
+    letterSpacing: "0.02em",
+    textTransform: "uppercase",
   },
   card: {
-    background: "#282C37", // Cor do card
-    borderRadius: 12,
-    boxShadow: "0 2px 8px rgba(0, 0, 0, 0.3)",
-    marginBottom: 16, // Espaçamento menor entre cards
-    color: "#E1E7F1",
-    overflow: "hidden", // Para o accordion funcionar
+    background: "#121826",
+    borderRadius: 18,
+    boxShadow: "0 6px 18px rgba(0, 0, 0, 0.4)",
+    marginBottom: 22,
+    color: "#F1F4FA",
+    border: "1px solid #3B4357",
+    overflow: "hidden",
   },
   // --- HEADER DO CARD (CLICKABLE) ---
   cardHeader: {
+    display: "grid",
+    gridTemplateColumns: "1fr auto",
+    columnGap: 12,
+    alignItems: "center",
+    padding: 16,
+    fontWeight: 900,
+    fontSize: "1.18rem",
+    color: "#F3F6FC",
+    cursor: "pointer",
+    background: "linear-gradient(180deg, #151B28 0%, #0F1624 100%)",
+    transition: "background 0.2s",
+    borderBottom: "1px solid #374055",
+    position: "relative" as const,
+  },
+  // Header reestruturado para evitar cortes no mobile
+  headerLeft: {
+    display: "flex",
+    flexDirection: "column" as const,
+    gap: 8,
+    minWidth: 0,
+    flex: "1 1 auto",
+  },
+  timeRow: {
+    display: "flex",
+    alignItems: "center",
+    gap: 8,
+  },
+  // Barra de placar no topo do card (completamente nova)
+  scoreBar: {
     display: "flex",
     justifyContent: "space-between",
     alignItems: "center",
-    padding: 20,
-    fontWeight: 700,
-    fontSize: "1.2rem",
-    color: "#FFFFFF",
-    cursor: "pointer",
-    background: "#282C37",
-    transition: "background 0.2s",
-    borderBottom: "1px solid #3A404F",
+    background: "linear-gradient(90deg, #FF3CAC 0%, #784BA0 50%, #2B86C5 100%)",
+    padding: "8px 12px",
+    borderRadius: 12,
+    color: "#0B0F15",
+    border: "1px solid rgba(255,255,255,0.06)",
+    boxShadow: "0 6px 16px rgba(120, 75, 160, 0.35)",
   },
-  gameTime: {
+  scoreTime: {
+    background: "rgba(255,255,255,0.9)",
+    color: "#0B0F15",
+    borderRadius: 10,
+    padding: "6px 10px",
+    fontWeight: 900,
+    minWidth: 64,
+    textAlign: "center" as const,
+  },
+  scoreRight: {
     display: "flex",
     alignItems: "center",
+    gap: 8,
+    flexWrap: "wrap" as const,
+  },
+  scoreMeta: {
+    color: "#F1F4FA",
+    fontSize: ".84rem",
+    fontWeight: 800,
+  },
+  scoreChip: {
+    display: "inline-flex",
+    alignItems: "center",
+    padding: "4px 8px",
+    fontSize: ".74rem",
+    fontWeight: 800,
+    border: "1px solid rgba(255,255,255,0.18)",
+    color: "#F1F4FA",
+    background: "rgba(11,15,21,0.35)",
+    borderRadius: 999,
+  },
+  tagsRow: {
+    display: "flex",
+    alignItems: "center",
+    gap: 8,
+    flexWrap: "wrap" as const,
+  },
+  tagPill: {
+    display: "inline-flex",
+    alignItems: "center",
+    gap: 6,
+    padding: "4px 10px",
+    fontSize: ".78rem",
+    fontWeight: 800,
+    color: "#9FDDF2",
+    background: "rgba(32,198,237,0.12)",
+    border: "1px solid #2F3648",
+    borderRadius: 999,
+  },
+  metaInfo: {
+    color: "#C7D0E0",
+    fontSize: ".86rem",
+    fontWeight: 700,
+  },
+  teamsRow: {
+    display: "grid",
+    gridTemplateColumns: "1fr auto 1fr",
+    alignItems: "center",
+    gap: 18,
+    flexWrap: "wrap" as const,
+  },
+  teamsArena: {
+    display: "grid",
+    gridTemplateColumns: "1fr auto 1fr",
+    alignItems: "center",
+    gap: 16,
+    paddingTop: 8,
+  },
+  teamBox: {
+    display: "grid",
+    gridTemplateColumns: "auto",
+    alignItems: "center",
+    gap: 8,
+  },
+  teamBoxLeft: {
+    display: "grid",
+    gridTemplateColumns: "auto",
+    alignItems: "center",
+    gap: 8,
+    justifySelf: "end" as const,
+  },
+  teamBoxRight: {
+    display: "grid",
+    gridTemplateColumns: "auto",
+    alignItems: "center",
+    gap: 8,
+    justifySelf: "start" as const,
+  },
+  teamBadge: {
+    width: 40,
+    height: 40,
+    borderRadius: 12,
+    background: "linear-gradient(135deg, #1F2433 0%, #2A3142 100%)",
+    border: "1px solid #2F3648",
+    color: "#E1E7F1",
+    fontWeight: 900,
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+    boxShadow: "0 4px 10px rgba(0,0,0,0.35)",
+    fontSize: "0.95rem",
+  },
+  teamName: {
+    fontSize: "1.1rem",
+    fontWeight: 900,
+    color: "#E1E7F1",
+    lineHeight: 1.2,
+    display: "flex",
+    alignItems: "center",
+    gap: 6,
+    flexWrap: "wrap" as const,
+  },
+  vsDivider: {
+    fontWeight: 900,
+    fontSize: "0.88rem",
+    color: "#0B0F15",
+    background: "linear-gradient(90deg, #FF3CAC 0%, #784BA0 100%)",
+    padding: "4px 8px",
+    borderRadius: 999,
+    boxShadow: "0 6px 16px rgba(120,75,160,0.35)",
+    border: "1px solid rgba(10, 15, 20, 0.3)",
+    margin: "0 8px",
+  },
+  pillTime: {
+    background: "#2A3142",
+    color: "#E1E7F1",
+    borderRadius: 10,
+    padding: "6px 10px",
+    fontWeight: 900,
+    minWidth: 64,
+    textAlign: "center" as const,
+    boxShadow: "0 0 0 1px #3B4357, 0 6px 16px rgba(32, 198, 237, 0.25)",
   },
   teamDisplay: {
     display: "flex",
     flexDirection: "column" as const,
-    textAlign: "center" as const, // Flexível no mobile
-    lineHeight: 1.2,
-    fontSize: "1.1rem"
-  },
-  teamPosicao: {
-    fontSize: "0.7rem",
-    fontWeight: 500,
-    color: "#A0A7B9",
-    marginTop: 2
-  },
-  vsText: {
-    color: "#5AD2F6", // Cor primária no 'vs'
+    textAlign: "center" as const,
+    lineHeight: 1.18,
+    fontSize: "1.32rem",
     fontWeight: 900,
-    fontSize: "1rem",
-    margin: "0 10px",
+    letterSpacing: "0.01em",
+    minWidth: 0,
+    maxWidth: "45%",
+    wordBreak: "break-word" as const,
+    overflowWrap: "break-word" as const,
+    hyphens: "auto" as const,
+  },
+  teamPosicaoPill: {
+    display: "inline-block",
+    fontSize: "0.72rem",
+    fontWeight: 800,
+    color: "#C9D2E3",
+    background: "#2A3142",
+    border: "1px solid #3B4357",
+    borderRadius: 999,
+    padding: "2px 6px",
+    marginTop: 0,
+    marginLeft: 6,
+  },
+  vsPill: {
+    color: "#071018",
+    background: "linear-gradient(90deg, #20C6ED 0%, #159BD1 100%)",
+    border: "1px solid rgba(15, 18, 27, 0.6)",
+    borderRadius: 999,
+    fontWeight: 900,
+    fontSize: "0.98rem",
+    letterSpacing: 1.1,
+    padding: "8px 14px",
+    margin: "0 6px",
+    boxShadow: "0 8px 18px rgba(32, 198, 237, 0.30)",
   },
   iconeAccordion: {
-    fontSize: "1.5rem",
+    fontSize: "clamp(1.2rem, 3.2vw, 1.5rem)",
     color: "#5AD2F6",
     transition: "transform 0.3s ease",
+    alignSelf: "center" as const,
+    justifySelf: "end" as const,
+    flexShrink: 0 as const,
   },
   // --- CORPO DO CARD (EXPANSÍVEL) ---
   cardBody: {
-    padding: "0 20px",
+    padding: "0 16px",
     maxHeight: 0,
     overflow: "hidden",
     transition: "max-height 0.4s ease-in-out", // Transição para accordion
   },
   cardBodyAberto: {
-    maxHeight: 1000, // Valor alto para acomodar o conteúdo
-    padding: "20px",
+    maxHeight: "none",
+    overflow: "visible",
+    padding: "16px",
   },
   // --- FORMULÁRIO E CONTROLES (Dentro do Body) ---
   selectGroup: {
-    display: "flex",
-    gap: "20px",
-    margin: "15px 0 20px 0",
-    flexWrap: "wrap" as const,
-    // Ajuste para mobile: remove "space-between" para permitir fluxo natural
-    justifyContent: "flex-start",
+    display: "grid",
+    gridTemplateColumns: "repeat(auto-fit, minmax(160px, 1fr))",
+    gap: "14px",
+    margin: "8px 0 16px 0",
   },
   // Novo estilo para a label container, garantindo que ocupe o espaço corretamente
   selectWrapper: {
     flexGrow: 1,
     flexShrink: 1,
-    minWidth: '140px', // Minimo para desktop/tablet
-    width: '100%', // Mobile: tenta pegar 100% (será limitado pelo minWidth)
-    maxWidth: 'calc(100% - 20px)', // Para telas que cabem dois, mas não três
-    marginBottom: 10, // Adiciona espaço vertical entre selects no mobile
+    width: '100%',
+    marginBottom: 12,
   },
   selectLabelText: {
-    fontWeight: 600,
-    fontSize: "0.95rem",
-    color: "#A0A7B9",
+    fontWeight: 700,
+    fontSize: "1.02rem",
+    color: "#CED6E4",
     display: "block",
-    marginBottom: 5,
+    marginBottom: 8,
   },
   select: {
-    padding: "10px",
-    borderRadius: "6px",
-    border: "1px solid #4A5063",
-    background: "#313540",
+    padding: "10px 12px",
+    borderRadius: "12px",
+    border: "1px solid #3B4357",
+    background: "#1A2130",
     color: "#FFFFFF",
-    fontWeight: 500,
-    fontSize: "1rem",
-    minWidth: "140px",
+    fontWeight: 600,
+    fontSize: "1.02rem",
+    minHeight: 42,
     cursor: "pointer",
-    width: '100%', // Garante que o select preencha o label
+    width: '100%',
     // CORREÇÃO MOBILE: Remove estilos padrões do navegador
     WebkitAppearance: 'none',
     MozAppearance: 'none',
     appearance: 'none',
   },
+  selectHelp: {
+    color: "#A9B6C9",
+    fontSize: ".86rem",
+    marginTop: 12,
+  },
   // --- HISTÓRICO (Dentro do Body) ---
   historicoContainer: {
     display: "flex",
-    gap: "20px",
-    marginTop: 15,
+    gap: "12px",
+    marginTop: 12,
     flexWrap: "wrap" as const,
   },
   historicoTime: {
-    flex: 1,
-    minWidth: "100%", // CORREÇÃO MOBILE: Força 100% de largura para empilhar em telas pequenas
-    marginBottom: 15, // Adiciona espaçamento vertical ao empilhar
+    flex: "1 1 240px",
+    minWidth: 220,
+    marginBottom: 12,
   },
   ultimosTitle: {
-    margin: "0 0 8px 0",
+    margin: "0 0 6px 0",
     color: "#A0A7B9",
-    fontWeight: 700,
-    fontSize: "0.9rem",
+    fontWeight: 800,
+    fontSize: "0.92rem",
     textTransform: "uppercase",
   },
   ultimosList: {
     paddingLeft: 0,
     margin: 0,
-    maxHeight: 100, // Diminuí para ser mais compacto
+    maxHeight: 160,
     overflowY: "auto",
     color: "#C4C8D2",
-    fontSize: "0.85rem",
+    fontSize: "0.86rem",
     listStyleType: "none",
   },
   ultimosListItem: {
-    marginBottom: 3,
+    marginBottom: 4,
     display: "flex",
     alignItems: "center",
-    gap: 10,
-    lineHeight: 1.3
+    gap: 6,
+    lineHeight: 1.25,
+    flexWrap: "wrap" as const,
+  },
+  historicoScore: {
+    fontWeight: 900,
+    color: "#E1E7F1",
+  },
+  historicoOpp: {
+    color: "#C7D0E0",
+    fontWeight: 800,
+  },
+  historicoLocalPill: {
+    display: "inline-flex",
+    alignItems: "center",
+    padding: "2px 8px",
+    borderRadius: 999,
+    fontSize: ".74rem",
+    fontWeight: 800,
+    border: "1px solid #3B4357",
+    background: "#2A3142",
+    color: "#C9D2E3",
   },
   // Cores dos Emojis para contraste
   emojiV: { color: "#4CAF50", fontWeight: 700, minWidth: 20, display: "inline-block" },
   emojiE: { color: "#FFC107", fontWeight: 700, minWidth: 20, display: "inline-block" },
   emojiD: { color: "#F44336", fontWeight: 700, minWidth: 20, display: "inline-block" },
+  sectionDivider: {
+    height: 1,
+    background: "#2F3648",
+    margin: "16px 0 14px",
+    opacity: 0.8,
+  },
   // --- OUTROS ---
   inputNome: {
     width: "100%",
-    padding: "12px 15px",
-    marginBottom: "25px",
-    borderRadius: "8px",
-    border: "1px solid #4A5063",
-    fontSize: "1.05rem",
-    fontWeight: 500,
-    background: "#313540",
+    padding: "12px 14px",
+    marginBottom: "20px",
+    borderRadius: "12px",
+    border: "1px solid #3B4357",
+    fontSize: "1.06rem",
+    fontWeight: 600,
+    background: "#242B3A",
     color: "#FFFFFF",
-    boxShadow: "inset 0 1px 3px rgba(0, 0, 0, 0.3)"
+    boxShadow: "inset 0 1px 3px rgba(0, 0, 0, 0.35)"
   },
   button: {
     padding: "16px 35px",
-    borderRadius: "10px",
+    borderRadius: "14px",
     border: "none",
-    background: "linear-gradient(90deg, #5AD2F6 0%, #20C6ED 100%)",
-    color: "#1A1E27",
+    background: "linear-gradient(90deg, #20C6ED 0%, #159BD1 100%)",
+    color: "#0F1218",
     cursor: "pointer",
-    fontWeight: 800,
+    fontWeight: 900,
     fontSize: "1.2rem",
-    boxShadow: "0px 8px 25px rgba(32, 198, 237, 0.3)",
+    boxShadow: "0px 10px 28px rgba(32, 198, 237, 0.35)",
     margin: "40px 0 25px 0",
     letterSpacing: "0.03em",
     transition: "all 0.3s ease",
+  },
+  expandControls: {
+    display: "flex",
+    justifyContent: "center",
+    margin: "-8px 0 18px 0",
+  },
+  expandButton: {
+    padding: "8px 14px",
+    borderRadius: 12,
+    border: "1px solid #32394B",
+    background: "#2A3142",
+    color: "#E1E7F1",
+    cursor: "pointer",
+    fontWeight: 800,
+    fontSize: "0.96rem",
+  },
+  stickyBar: {
+    position: "fixed" as const,
+    bottom: 0,
+    left: 0,
+    right: 0,
+    background: "rgba(17, 24, 39, 0.75)",
+    borderTop: "1px solid #2F3648",
+    padding: 12,
+    zIndex: 1000,
+    backdropFilter: "saturate(220%) blur(12px)",
+    WebkitBackdropFilter: "saturate(220%) blur(12px)",
+  },
+  stickyInner: {
+    maxWidth: 860,
+    margin: "0 auto",
+    display: "flex",
+    justifyContent: "center",
+    padding: "0 16px",
+    width: "100%",
+  },
+  stickyButton: {
+    padding: "12px 20px",
+    borderRadius: 14,
+    border: "none",
+    background: "linear-gradient(90deg, #20C6ED 0%, #159BD1 100%)",
+    color: "#0F1218",
+    cursor: "pointer",
+    fontWeight: 900,
+    fontSize: "1.06rem",
+    boxShadow: "0px 10px 28px rgba(32, 198, 237, 0.35)",
+    letterSpacing: "0.03em",
+    width: "100%",
+    maxWidth: 560,
   },
   formFeedback: {
     background: "#4CAF50",
@@ -330,6 +596,24 @@ const styles: { [key: string]: React.CSSProperties } = {
     marginBottom: 10,
     lineHeight: 1.4
   },
+  // --- LAYOUT GERAL COM SIDEBAR ---
+  layoutGrid: {
+    display: "flex",
+    gap: 24,
+    alignItems: "flex-start",
+    flexWrap: "wrap" as const,
+  },
+  controlsPanel: {
+    flex: "1 1 300px",
+    minWidth: 0,
+  },
+  nomeBox: {
+    margin: "12px 0 22px",
+  },
+  contentPanel: {
+    flex: "1 1 500px",
+    minWidth: 0,
+  },
   footer: {
     marginTop: 40,
     textAlign: "center" as const,
@@ -337,6 +621,195 @@ const styles: { [key: string]: React.CSSProperties } = {
     fontWeight: 500,
     fontSize: "0.9rem",
   },
+  pageFooter: {
+    marginTop: 40,
+    textAlign: "center" as const,
+    color: "#6C7383",
+    fontWeight: 500,
+    fontSize: "0.9rem",
+  },
+};
+
+// Tipagem auxiliar para os estilos e função de responsividade
+type Styles = typeof styles;
+
+const makeResponsiveStyles = (width: number): Styles => {
+  const s: Styles = {
+    ...styles,
+    header: { ...styles.header },
+    h1: { ...styles.h1 },
+    pHeader: { ...styles.pHeader },
+    pWarning: { ...styles.pWarning },
+    inputNome: { ...styles.inputNome },
+    expandControls: { ...styles.expandControls },
+    expandButton: { ...styles.expandButton },
+    card: { ...styles.card },
+    cardHeader: { ...styles.cardHeader },
+    headerLeft: { ...styles.headerLeft },
+    scoreBar: { ...styles.scoreBar },
+    scoreTime: { ...styles.scoreTime },
+    scoreRight: { ...styles.scoreRight },
+    scoreMeta: { ...styles.scoreMeta },
+    scoreChip: { ...styles.scoreChip },
+    teamsArena: { ...styles.teamsArena },
+    teamBox: { ...styles.teamBox },
+    teamBadge: { ...styles.teamBadge },
+    teamName: { ...styles.teamName },
+    teamPosicaoPill: { ...styles.teamPosicaoPill },
+    vsDivider: { ...styles.vsDivider },
+    iconeAccordion: { ...styles.iconeAccordion },
+    cardBody: { ...styles.cardBody },
+    cardBodyAberto: { ...styles.cardBodyAberto },
+    selectGroup: { ...styles.selectGroup },
+    selectWrapper: { ...styles.selectWrapper },
+    selectLabelText: { ...styles.selectLabelText },
+    select: { ...styles.select },
+    selectHelp: { ...styles.selectHelp },
+    sectionDivider: { ...styles.sectionDivider },
+    historicoContainer: { ...styles.historicoContainer },
+    historicoTime: { ...styles.historicoTime },
+    ultimosTitle: { ...styles.ultimosTitle },
+    ultimosList: { ...styles.ultimosList },
+    ultimosListItem: { ...styles.ultimosListItem },
+    layoutGrid: { ...styles.layoutGrid },
+    controlsPanel: { ...styles.controlsPanel },
+    contentPanel: { ...styles.contentPanel },
+  };
+  // Remove coluna fixa do badge; manter apenas nome/posição
+  s.teamBox.gridTemplateColumns = "auto";
+
+  // Tipografia e espaçamentos fluídos para topo/Atenção
+  s.header.padding = "clamp(12px, 3.5vw, 22px)";
+  s.h1.fontSize = "clamp(1.7rem, 4vw, 2.3rem)";
+  s.pHeader.fontSize = "clamp(0.95rem, 2.2vw, 1.05rem)";
+  s.pWarning.fontSize = "clamp(0.9rem, 2.2vw, 1rem)";
+  (s.pWarning as any).maxWidth = "100%";
+  (s.pWarning as any).whiteSpace = "normal";
+  (s.pWarning as any).overflowWrap = "break-word";
+  (s.pWarning as any).hyphens = "auto";
+  // Inputs e selects sempre fluidos
+  s.inputNome.width = "100%";
+  (s.inputNome as any).minWidth = 0;
+  s.select.width = "100%";
+  (s.select as any).minWidth = 0;
+  (s.headerLeft as any).minWidth = 0;
+  // Cabeçalho em grid garante seta ancorada à direita
+  s.cardHeader.display = "grid" as const;
+  (s.cardHeader as any).gridTemplateColumns = "1fr auto";
+  s.cardHeader.alignItems = "center" as const;
+  s.iconeAccordion.position = "static" as const;
+  (s.iconeAccordion as any).alignSelf = "center";
+  (s.iconeAccordion as any).justifySelf = "end";
+  (s.iconeAccordion as any).flexShrink = 0;
+
+  if (width <= 380) {
+    s.header.padding = "16px";
+    s.h1.fontSize = "1.8rem";
+    s.pHeader.fontSize = "0.95rem";
+    s.pWarning.fontSize = "0.88rem";
+    s.pWarning.padding = "8px 10px";
+    s.expandButton.fontSize = "0.9rem";
+    s.inputNome.padding = "10px 12px";
+    s.cardHeader.padding = "10px 12px";
+    s.cardHeader.flexDirection = "column" as const;
+    s.cardHeader.alignItems = "stretch" as const;
+    (s.cardHeader as any).gap = 10;
+    s.scoreBar.padding = "6px 8px";
+    (s.scoreBar as any).flexWrap = "wrap";
+    (s.scoreBar as any).gap = 8;
+    (s.scoreRight as any).width = "100%";
+    s.teamBadge.width = 28;
+    s.teamBadge.height = 28;
+    s.teamName.fontSize = "0.95rem";
+    s.teamBox.gap = 8;
+    s.teamBox.gridTemplateColumns = "auto";
+    (s.vsDivider as any).width = "auto";
+    s.vsDivider.fontSize = "0.9rem";
+    (s.vsDivider as any).margin = "8px 8px";
+    s.teamsArena.gap = 8;
+    s.teamsArena.gridTemplateColumns = "1fr";
+    (s.teamsArena as any).justifyItems = "center";
+    s.selectGroup.gridTemplateColumns = "repeat(auto-fit, minmax(140px, 1fr))";
+    s.selectLabelText.fontSize = "0.9rem";
+    s.select.minHeight = 34;
+    s.selectHelp.marginTop = 10;
+    s.historicoTime.minWidth = 200;
+    s.historicoTime.flex = "1 1 200px";
+    s.ultimosList.maxHeight = 140;
+  } else if (width <= 480) {
+    s.header.padding = "18px";
+    s.h1.fontSize = "clamp(1.6rem, 5.2vw, 2rem)";
+    s.pHeader.fontSize = "clamp(0.9rem, 3.5vw, 1rem)";
+    s.pWarning.fontSize = "clamp(0.86rem, 3.4vw, 0.98rem)";
+    s.pWarning.padding = "9px 11px";
+    s.selectGroup.gridTemplateColumns = "repeat(auto-fit, minmax(160px, 1fr))";
+    s.teamBox.gap = 10;
+    s.teamBox.gridTemplateColumns = "auto";
+    s.teamsArena.gap = 10;
+    s.teamsArena.gridTemplateColumns = "1fr";
+    (s.teamsArena as any).justifyItems = "center";
+    (s.cardHeader as any).gap = 12;
+    (s.scoreBar as any).flexWrap = "wrap";
+    (s.scoreBar as any).gap = 8;
+    (s.scoreRight as any).width = "100%";
+    s.expandButton.width = "100%";
+    s.teamBadge.width = 32;
+    s.teamBadge.height = 32;
+    s.teamName.fontSize = "1rem";
+    (s.vsDivider as any).width = "auto";
+    (s.vsDivider as any).margin = "10px 8px";
+    // Empilhar layout topo
+    (s.layoutGrid as any).flexDirection = "column";
+    s.controlsPanel.flex = "1 1 100%";
+    (s.controlsPanel as any).minWidth = "auto";
+    s.contentPanel.flex = "1 1 100%";
+    (s.contentPanel as any).minWidth = "auto";
+  } else if (width <= 768) {
+    s.selectGroup.gridTemplateColumns = "repeat(auto-fit, minmax(180px, 1fr))";
+    // Em tablets, permitir quebra suave do header
+    (s.cardHeader as any).gap = 10;
+    (s.scoreBar as any).flexWrap = "wrap";
+    (s.layoutGrid as any).flexDirection = "column";
+    s.controlsPanel.flex = "1 1 100%";
+    (s.controlsPanel as any).minWidth = "auto";
+    s.contentPanel.flex = "1 1 100%";
+    (s.contentPanel as any).minWidth = "auto";
+  }
+
+  return s;
+};
+
+// Utilitário: formata datas ISO (ex.: 2025-11-08) para pt-BR
+const formatarDataPt = (iso: string, curto = false): string => {
+  try {
+    // Trata 'YYYY-MM-DD' como data local para evitar deslocamento por timezone
+    const m = iso.match(/^\s*(\d{4})-(\d{2})-(\d{2})\s*$/);
+    let d: Date;
+    if (m) {
+      const year = parseInt(m[1], 10);
+      const month = parseInt(m[2], 10) - 1; // 0-based
+      const day = parseInt(m[3], 10);
+      d = new Date(year, month, day);
+    } else {
+      d = new Date(iso);
+    }
+    if (isNaN(d.getTime())) return iso;
+    const opts: Intl.DateTimeFormatOptions = curto
+      ? { day: '2-digit', month: '2-digit' }
+      : { day: '2-digit', month: '2-digit', year: 'numeric' };
+    return d.toLocaleDateString('pt-BR', opts);
+  } catch {
+    return iso;
+  }
+};
+
+// Extrai gols e adversário de uma string "NxM Adversário"
+const parsePlacarItem = (placar: string): { golsPro: number; golsContra: number; adversario: string } => {
+  const m = placar.match(/^\s*(\d+)\s*x\s*(\d+)\s+(.+?)\s*$/i);
+  if (!m) {
+    return { golsPro: NaN, golsContra: NaN, adversario: placar };
+  }
+  return { golsPro: parseInt(m[1], 10), golsContra: parseInt(m[2], 10), adversario: m[3] };
 };
 
 // ----------------------------------------------------
@@ -357,6 +830,7 @@ interface CardJogoProps {
   ) => void;
   isAberto: boolean;
   toggleAccordion: () => void;
+  styles: Styles;
 }
 
 const CardJogo: React.FC<CardJogoProps> = ({
@@ -367,6 +841,7 @@ const CardJogo: React.FC<CardJogoProps> = ({
   handleChange,
   isAberto,
   toggleAccordion,
+  styles,
 }) => {
   const times: [string, string] = [jogo.times[0].nome, jogo.times[1].nome];
   const ultimos: UltimosPorTime = jogo.ultimos || {};
@@ -383,21 +858,38 @@ const CardJogo: React.FC<CardJogoProps> = ({
     <div style={styles.card}>
       {/* HEADER DO CARD (CLICKABLE) */}
       <div style={styles.cardHeader} onClick={toggleAccordion}>
-        {/* Lado Esquerdo: Hora e Times */}
-        <div style={styles.gameTime}>
-          <span>{jogo.hora}</span>
-          <span style={styles.vsText}> - </span>
-          <div style={styles.teamDisplay}>
-            {jogo.times[0].nome}
-            <span style={styles.teamPosicao}>({jogo.times[0].posicao}º)</span>
+        {/* Novo header: barra de placar + arena de times */}
+        <div style={styles.headerLeft}>
+          <div style={styles.scoreBar}>
+            <span style={styles.scoreTime}>{jogo.hora}</span>
+            <div style={styles.scoreRight}>
+              {(jogo.campeonato || typeof jogo.rodada === "number") && (
+                <span style={styles.scoreMeta}>
+                  {jogo.campeonato ? jogo.campeonato : ""}
+                  {jogo.campeonato && typeof jogo.rodada === "number" ? " • " : ""}
+                  {typeof jogo.rodada === "number" ? `Rodada ${jogo.rodada}` : ""}
+                </span>
+              )}
+              {/* Chips de sugestão removidos (Linha/BTTS) conforme solicitado */}
+            </div>
           </div>
-          <span style={styles.vsText}> VS </span>
-          <div style={styles.teamDisplay}>
-            {jogo.times[1].nome}
-            <span style={styles.teamPosicao}>({jogo.times[1].posicao}º)</span>
+          <div style={styles.teamsArena}>
+            <div style={styles.teamBoxLeft}>
+              <div style={styles.teamName}>
+                {jogo.times[0].nome}
+                <span style={styles.teamPosicaoPill}>{jogo.times[0].posicao}º</span>
+              </div>
+            </div>
+            <span style={styles.vsDivider}>VS</span>
+            <div style={styles.teamBoxRight}>
+              <div style={styles.teamName}>
+                {jogo.times[1].nome}
+                <span style={styles.teamPosicaoPill}>{jogo.times[1].posicao}º</span>
+              </div>
+            </div>
           </div>
         </div>
-        {/* Lado Direito: Ícone Accordion */}
+        {/* Ícone do Accordion à direita */}
         <span
           style={{
             ...styles.iconeAccordion,
@@ -433,13 +925,14 @@ const CardJogo: React.FC<CardJogoProps> = ({
               // Desabilita se Dupla Chance tiver sido preenchida
               disabled={!!palpiteAtual?.duplaChance && palpiteAtual.duplaChance !== ""}
             >
-              <option value="">--Escolha--</option>
+              <option value=""></option>
               {mercadosResultadoFinal.map((opt) => (
                 <option key={opt} value={opt}>
                   {opt}
                 </option>
               ))}
             </select>
+            <small style={styles.selectHelp}>Escolha 1 (mandante), X (empate) ou 2 (visitante).</small>
           </label>
 
           {/* Dupla Chance */}
@@ -462,13 +955,14 @@ const CardJogo: React.FC<CardJogoProps> = ({
               // Desabilita se Resultado Final tiver sido preenchido
               disabled={!!palpiteAtual?.resultadoFinal && palpiteAtual.resultadoFinal !== ""}
             >
-              <option value="">--Escolha--</option>
+              <option value=""></option>
               {mercadosDuplaChance.map((opt) => (
                 <option key={opt} value={opt}>
                   {opt}
                 </option>
               ))}
             </select>
+            <small style={styles.selectHelp}>Escolha a dupla chance.</small>
           </label>
 
           {/* Gols */}
@@ -489,18 +983,20 @@ const CardJogo: React.FC<CardJogoProps> = ({
                 )
               }
             >
-              <option value="">--Escolha--</option>
+              <option value=""></option>
               {mercadosGols.map((opt) => (
                 <option key={opt} value={opt}>
                   {opt}
                 </option>
               ))}
             </select>
+            <small style={styles.selectHelp}>Selecione a linha de gols.</small>
           </label>
         </div>
 
         {/* Histórico */}
         {/* O container historicoTime agora tem minWidth: 100% e marginBottom para empilhar */}
+        <div style={styles.sectionDivider} />
         <div style={styles.historicoContainer}>
           {/* Histórico Time 1 */}
           <div style={styles.historicoTime}>
@@ -513,8 +1009,27 @@ const CardJogo: React.FC<CardJogoProps> = ({
                   <span style={getEmojiStyle(item.resultado)}>
                     {emojiResultado(item.resultado)}
                   </span>
-                  <span style={{ minWidth: 50 }}>{item.data}</span>
-                  <span>{item.placar}</span>
+                  <span style={{ minWidth: 50 }}>{formatarDataPt(item.data, true)}</span>
+                  {(() => {
+                    const p = parsePlacarItem(item.placar);
+                    const isFora = item.local === "fora";
+                    const marcador = isFora ? "@" : "vs";
+                    return (
+                      <>
+                        {item.local && (
+                          <span style={styles.historicoLocalPill}>{isFora ? "Fora" : "Casa"}</span>
+                        )}
+                        <span style={styles.historicoOpp}>
+                          {marcador} {p.adversario}
+                        </span>
+                        <span style={styles.historicoScore}>
+                          {Number.isNaN(p.golsPro) || Number.isNaN(p.golsContra)
+                            ? item.placar
+                            : `${p.golsPro}–${p.golsContra}`}
+                        </span>
+                      </>
+                    );
+                  })()}
                 </li>
               ))}
               {(ultimos[times[0]] || []).length === 0 && (
@@ -534,8 +1049,27 @@ const CardJogo: React.FC<CardJogoProps> = ({
                   <span style={getEmojiStyle(item.resultado)}>
                     {emojiResultado(item.resultado)}
                   </span>
-                  <span style={{ minWidth: 50 }}>{item.data}</span>
-                  <span>{item.placar}</span>
+                  <span style={{ minWidth: 50 }}>{formatarDataPt(item.data, true)}</span>
+                  {(() => {
+                    const p = parsePlacarItem(item.placar);
+                    const isFora = item.local === "fora";
+                    const marcador = isFora ? "@" : "vs";
+                    return (
+                      <>
+                        {item.local && (
+                          <span style={styles.historicoLocalPill}>{isFora ? "Fora" : "Casa"}</span>
+                        )}
+                        <span style={styles.historicoOpp}>
+                          {marcador} {p.adversario}
+                        </span>
+                        <span style={styles.historicoScore}>
+                          {Number.isNaN(p.golsPro) || Number.isNaN(p.golsContra)
+                            ? item.placar
+                            : `${p.golsPro}–${p.golsContra}`}
+                        </span>
+                      </>
+                    );
+                  })()}
                 </li>
               ))}
               {(ultimos[times[1]] || []).length === 0 && (
@@ -560,11 +1094,27 @@ export default function App() {
   const [statusEnvio, setStatusEnvio] = useState<"ocioso" | "enviando" | "sucesso" | "erro">("ocioso");
   const [nomeUsuario, setNomeUsuario] = useState("");
   const [abertoKey, setAbertoKey] = useState<string | null>(null);
+  const [todosAbertos, setTodosAbertos] = useState<boolean>(false);
+  const [viewportWidth, setViewportWidth] = useState<number>(typeof window !== 'undefined' ? window.innerWidth : 1024);
+
+  useEffect(() => {
+    const onResize = () => setViewportWidth(window.innerWidth);
+    window.addEventListener('resize', onResize);
+    return () => window.removeEventListener('resize', onResize);
+  }, []);
+
+  const rstyles = makeResponsiveStyles(viewportWidth);
 
   const FORM_ENDPOINT = "https://formspree.io/f/xanllngo"; // Substitua pelo seu endpoint Formspree
 
   const toggleAccordion = (key: string) => {
     setAbertoKey(key === abertoKey ? null : key);
+  };
+
+  const toggleTodos = () => {
+    setTodosAbertos((prev) => !prev);
+    // Quando abrir todos, limpar seleção individual para não conflitar visualmente
+    if (!todosAbertos) setAbertoKey(null);
   };
 
   const handleChange = (
@@ -689,99 +1239,121 @@ export default function App() {
   return (
     <div style={styles.app}>
       <main style={styles.main}>
-        <header style={styles.header}>
-          <h1 style={styles.h1}>Futebol ⚽</h1>
-          <p style={styles.pHeader}>
-            Palpite nos jogos! Veja o histórico dos times{" "}
-            <span style={{ filter: "brightness(.9)" }}>🟩🟨🟥</span> e torne-se o
-            craque das previsões.
-          </p>
-
-          <p style={styles.pWarning}>
-            <span style={{ fontWeight: 700 }}>Atenção:</span><br /><br />
-            Você pode escolher entre **Resultado** OU **Dupla Chance** (não os dois) e adicionar **Gols**, se quiser.<br /><br />
-            Não é obrigatório escolher todos os jogos e mercados, mas isso influência no valor final.<br /><br />
-            A **Posição** atual na tabela do Brasileirão (ex: 1º) aparece junto ao nome do time.
-          </p>
-        </header>
         <form
           onSubmit={handleSubmit}
           style={{ marginBottom: 32 }}
+          id="palpitesForm"
         >
-          <label htmlFor="nomeUsuario">
-            <input
-              id="nomeUsuario"
-              type="text"
-              name="nome"
-              placeholder="Seu primeiro nome"
-              style={styles.inputNome}
-              value={nomeUsuario}
-              onChange={(e) => setNomeUsuario(e.target.value)}
-              required
-              autoComplete="given-name"
-            />
-          </label>
-          {Object.entries(jogos).map(([dia, partidas]) => (
-            <section key={dia}>
-              <h2 style={styles.sectionTitle}>{dia}</h2>
-              {partidas.map((jogo: Partida, index) => {
-                const timesNome: [string, string] = [jogo.times[0].nome, jogo.times[1].nome];
-                const key = `${dia}-${jogo.hora}-${timesNome[0]}-${timesNome[1]}`;
-                
-                return (
-                  <CardJogo
-                    key={key}
-                    jogo={jogo}
-                    dia={dia}
-                    jogoKey={key}
-                    formData={formData}
-                    handleChange={handleChange}
-                    isAberto={key === abertoKey}
-                    toggleAccordion={() => toggleAccordion(key)}
+          <div style={rstyles.layoutGrid}>
+            <aside style={rstyles.controlsPanel}>
+              <header style={rstyles.header}>
+                <h1 style={rstyles.h1}>Futebol ⚽</h1>
+                <p style={rstyles.pHeader}>
+                  Palpite nos jogos! Veja o histórico dos times{' '}
+                  <span style={{ filter: 'brightness(.9)' }}>🟩🟨🟥</span> e torne-se o
+                  craque das previsões.
+                </p>
+                <p style={rstyles.pWarning}>
+                  <span style={{ fontWeight: 700 }}>Atenção:</span><br /><br />
+                  Você pode escolher entre **Resultado** OU **Dupla Chance** (não os dois) e adicionar **Gols**, se quiser.<br /><br />
+                  Não é obrigatório escolher todos os jogos e mercados, mas isso influência no valor final.<br /><br />
+                  A **Posição** atual na tabela do Brasileirão (ex: 1º) aparece junto ao nome do time.
+                </p>
+              </header>
+              <div style={rstyles.expandControls}>
+                <button type="button" style={rstyles.expandButton} onClick={toggleTodos}>
+                  {todosAbertos ? "Recolher todos os jogos" : "Expandir todos os jogos"}
+                </button>
+              </div>
+              <div style={styles.nomeBox}>
+                <label htmlFor="nomeUsuario">
+                  <input
+                    id="nomeUsuario"
+                    type="text"
+                    name="nome"
+                    placeholder="Seu primeiro nome"
+                    style={rstyles.inputNome}
+                    value={nomeUsuario}
+                    onChange={(e) => setNomeUsuario(e.target.value)}
+                    required
+                    autoComplete="given-name"
                   />
-                );
-              })}
-            </section>
-          ))}
-          <button type="submit" style={styles.button} disabled={statusEnvio === "enviando"}>
-            {statusEnvio === "enviando" ? "Enviando..." : "Enviar palpites!"}
-          </button>
-        </form>
-        {statusEnvio === "sucesso" && (
-          <div style={styles.formFeedback}>
-            ✅ Palpites enviados com sucesso!
-          </div>
-        )}
-        {statusEnvio === "erro" && (
-          <div style={styles.formError}>
-            ❌ Erro no envio. Verifique o nome e tente novamente.
-          </div>
-        )}
-        <section style={styles.meusPalpites}>
-          <h2 style={styles.meusPalpitesTitle}>Meus Palpites:</h2>
-          <ul style={styles.meusPalpitesList}>
-            {Object.entries(formData).map(([key, e]) => {
-                if (e.resultadoFinal || e.duplaChance || e.gols) {
+                </label>
+              </div>
+              {/* Rodapé removido da sidebar para não ficar no meio da página */}
+            </aside>
+            <section style={rstyles.contentPanel}>
+              {Object.entries(jogos).map(([dia, partidas]) => (
+                <section key={dia}>
+            <h2 style={styles.sectionTitle}>{formatarDataPt(dia)}</h2>
+                  {partidas.map((jogo: Partida) => {
+                    const timesNome: [string, string] = [jogo.times[0].nome, jogo.times[1].nome];
+                    const key = `${dia}-${jogo.hora}-${timesNome[0]}-${timesNome[1]}`;
                     return (
-                        <li key={key} style={styles.meusPalpitesListItem}>
-                            {e.dia}, {e.hora}: <b>{e.times[0]}</b> x <b>{e.times[1]}</b>
-                            {e.resultadoFinal && (
-                            <> — <strong>Resultado: {e.resultadoFinal}</strong></>
-                            )}
-                            {e.duplaChance && (
-                            <> / <strong>Dupla: {e.duplaChance}</strong></>
-                            )}
-                            {e.gols && <> / <strong>Gols: {e.gols}</strong></>}
-                        </li>
+                      <CardJogo
+                        key={key}
+                        jogo={jogo}
+                        dia={dia}
+                        jogoKey={key}
+                        formData={formData}
+                        handleChange={handleChange}
+                        isAberto={todosAbertos || key === abertoKey}
+                        toggleAccordion={() => toggleAccordion(key)}
+                        styles={rstyles}
+                      />
                     );
-                }
-                return null;
-            })}
-          </ul>
-        </section>
-        <footer style={styles.footer}>
+                  })}
+                </section>
+              ))}
+              {statusEnvio === "sucesso" && (
+                <div style={styles.formFeedback}>✅ Palpites enviados com sucesso!</div>
+              )}
+              {statusEnvio === "erro" && (
+                <div style={styles.formError}>❌ Erro no envio. Verifique o nome e tente novamente.</div>
+              )}
+            </section>
+          </div>
+          {/* Meus Palpites no final da página */}
+          <section style={styles.meusPalpites}>
+            <h2 style={styles.meusPalpitesTitle}>Meus Palpites:</h2>
+            <ul style={styles.meusPalpitesList}>
+              {Object.entries(formData).map(([key, e]) => {
+                  if (e.resultadoFinal || e.duplaChance || e.gols) {
+                      return (
+                          <li key={key} style={styles.meusPalpitesListItem}>
+                              {formatarDataPt(e.dia)}, {e.hora}: <b>{e.times[0]}</b> x <b>{e.times[1]}</b>
+                              {e.resultadoFinal && (
+                              <> — <strong>Resultado: {e.resultadoFinal}</strong></>
+                              )}
+                              {e.duplaChance && (
+                              <> / <strong>Dupla: {e.duplaChance}</strong></>
+                              )}
+                              {e.gols && <> / <strong>Gols: {e.gols}</strong></>}
+                          </li>
+                      );
+                  }
+                  return null;
+              })}
+            </ul>
+          </section>
+        </form>
+        {/* Rodapé geral da página, abaixo do conteúdo */}
+        <footer style={styles.pageFooter}>
           © 2025 - Futebol ⚽ | Desenvolvimento: Hemerson
         </footer>
+        {/* Barra fixa de envio (mobile-friendly) */}
+        <div style={styles.stickyBar}>
+          <div style={styles.stickyInner}>
+            <button
+              type="submit"
+              form="palpitesForm"
+              style={styles.stickyButton}
+              disabled={statusEnvio === "enviando"}
+            >
+              {statusEnvio === "enviando" ? "Enviando..." : "Enviar palpites"}
+            </button>
+          </div>
+        </div>
       </main>
     </div>
   );

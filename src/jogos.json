@@ -1,204 +1,21 @@
 {
-  "2025-11-01": [
+  "2025-11-08": [
     {
+      "campeonato": "BRASILEIRÃO SÉRIE A - 2025",
+      "rodada": 35,
       "hora": "16:00",
       "times": [
-        {"nome": "Santos", "posicao": 16},
-        {"nome": "Fortaleza", "posicao": 18}
+        {"nome": "Sport Recife", "posicao": 20},
+        {"nome": "Atlético MG", "posicao": 13}
       ],
+      "linhas": {"golsPadrao": 2.5, "bttsDisponivel": true},
       "ultimos": {
-        "Santos": [
-          {"resultado": "E", "placar": "2x2 Botafogo", "data": "26/10"},
-          {"resultado": "D", "placar": "0x1 EC Vitória", "data": "20/10"},
-          {"resultado": "V", "placar": "3x1 Corinthians", "data": "15/10"},
-          {"resultado": "D", "placar": "0x3 Ceará SC", "data": "05/10"},
-          {"resultado": "E", "placar": "1x1 Grêmio", "data": "01/10"}
-        ],
-        "Fortaleza": [
-          {"resultado": "V", "placar": "1x0 Flamengo", "data": "25/10"},
-          {"resultado": "D", "placar": "0x2 Bahia", "data": "20/10"},
-          {"resultado": "E", "placar": "1x1 Goiás", "data": "15/10"},
-          {"resultado": "V", "placar": "2x1 Ceará", "data": "10/10"},
-          {"resultado": "D", "placar": "0x2 Palmeiras", "data": "06/10"}
-        ]
-      }
-    },
-    {
-      "hora": "16:00",
-      "times": [
-        {"nome": "Cruzeiro MG", "posicao": 3},
-        {"nome": "Vitória BA", "posicao": 17}
-      ],
-      "ultimos": {
-        "Cruzeiro MG": [
-          {"resultado": "E", "placar": "0x0 Palmeiras", "data": "26/10"},
-          {"resultado": "V", "placar": "1x0 Fortaleza", "data": "22/10"},
-          {"resultado": "D", "placar": "0x1 RB Bragantino", "data": "18/10"},
-          {"resultado": "E", "placar": "1x1 Atlético MG", "data": "15/10"},
-          {"resultado": "V", "placar": "2x0 Santos", "data": "11/10"}
-        ],
-        "Vitória BA": [
-          {"resultado": "V", "placar": "1x0 Corinthians", "data": "25/10"},
-          {"resultado": "D", "placar": "0x2 Botafogo RJ", "data": "19/10"},
-          {"resultado": "V", "placar": "1x0 Mirassol", "data": "14/10"},
-          {"resultado": "D", "placar": "1x3 Bahia", "data": "09/10"},
-          {"resultado": "V", "placar": "2x1 RB Bragantino", "data": "04/10"}
-        ]
-      }
-    },
-    {
-      "hora": "18:00",
-      "times": [
-        {"nome": "Mirassol", "posicao": 4},
-        {"nome": "Botafogo RJ", "posicao": 7}
-      ],
-      "ultimos": {
-        "Mirassol": [
-          {"resultado": "V", "placar": "2x1 Sport Recife", "data": "25/10"},
-          {"resultado": "D", "placar": "0x3 Flamengo", "data": "21/10"},
-          {"resultado": "E", "placar": "1x1 Vasco da Gama", "data": "18/10"},
-          {"resultado": "E", "placar": "0x0 Cruzeiro MG", "data": "14/10"},
-          {"resultado": "V", "placar": "1x0 Fluminense", "data": "09/10"}
-        ],
-        "Botafogo RJ": [
-          {"resultado": "E", "placar": "2x2 Santos", "data": "26/10"},
-          {"resultado": "V", "placar": "3x1 Bahia", "data": "22/10"},
-          {"resultado": "D", "placar": "1x2 Palmeiras", "data": "18/10"},
-          {"resultado": "V", "placar": "2x0 Vitória BA", "data": "14/10"},
-          {"resultado": "D", "placar": "1x3 Ceará", "data": "09/10"}
-        ]
-      }
-    },
-    {
-      "hora": "21:00",
-      "times": [
-        {"nome": "Flamengo", "posicao": 2},
-        {"nome": "Sport Recife", "posicao": 20}
-      ],
-      "ultimos": {
-        "Flamengo": [
-          {"resultado": "D", "placar": "0x1 Fortaleza", "data": "25/10"},
-          {"resultado": "V", "placar": "2x0 Vasco da Gama", "data": "21/10"},
-          {"resultado": "E", "placar": "2x2 RB Bragantino", "data": "18/10"},
-          {"resultado": "V", "placar": "2x0 Palmeiras", "data": "14/10"},
-          {"resultado": "E", "placar": "1x1 Ceará", "data": "10/10"}
-        ],
         "Sport Recife": [
           {"resultado": "D", "placar": "1x2 Mirassol", "data": "25/10"},
           {"resultado": "E", "placar": "0x0 Bahia", "data": "21/10"},
           {"resultado": "V", "placar": "1x0 Fortaleza", "data": "16/10"},
           {"resultado": "D", "placar": "2x3 Atlético MG", "data": "12/10"},
           {"resultado": "E", "placar": "1x1 Grêmio RS", "data": "08/10"}
-        ]
-      }
-    }
-  ],
-  "2025-11-02": [
-    {
-      "hora": "16:00",
-      "times": [
-        {"nome": "Corinthians", "posicao": 10},
-        {"nome": "Grêmio RS", "posicao": 11}
-      ],
-      "ultimos": {
-        "Corinthians": [
-          {"resultado": "D", "placar": "0x1 Vitória BA", "data": "25/10"},
-          {"resultado": "E", "placar": "1x1 Palmeiras", "data": "21/10"},
-          {"resultado": "V", "placar": "2x1 Fluminense", "data": "16/10"},
-          {"resultado": "D", "placar": "0x1 RB Bragantino", "data": "12/10"},
-          {"resultado": "V", "placar": "1x0 Bahia", "data": "08/10"}
-        ],
-        "Grêmio RS": [
-          {"resultado": "V", "placar": "3x1 Juventude", "data": "26/10"},
-          {"resultado": "E", "placar": "1x1 Internacional RS", "data": "22/10"},
-          {"resultado": "D", "placar": "0x1 Palmeiras", "data": "18/10"},
-          {"resultado": "V", "placar": "2x1 Bahia", "data": "13/10"},
-          {"resultado": "D", "placar": "1x3 Santos", "data": "09/10"}
-        ]
-      }
-    },
-    {
-      "hora": "16:00",
-      "times": [
-        {"nome": "Bahia", "posicao": 5},
-        {"nome": "RB Bragantino", "posicao": 12}
-      ],
-      "ultimos": {
-        "Bahia": [
-          {"resultado": "D", "placar": "0x2 São Paulo", "data": "25/10"},
-          {"resultado": "E", "placar": "0x0 Sport Recife", "data": "21/10"},
-          {"resultado": "V", "placar": "2x0 Fortaleza", "data": "16/10"},
-          {"resultado": "D", "placar": "0x2 Santos", "data": "12/10"},
-          {"resultado": "V", "placar": "3x2 Vitória BA", "data": "08/10"}
-        ],
-        "RB Bragantino": [
-          {"resultado": "D", "placar": "0x3 Vasco da Gama", "data": "26/10"},
-          {"resultado": "D", "placar": "0x1 Palmeiras", "data": "22/10"},
-          {"resultado": "E", "placar": "2x2 Flamengo", "data": "18/10"},
-          {"resultado": "V", "placar": "1x0 Cruzeiro MG", "data": "13/10"},
-          {"resultado": "D", "placar": "0x2 Santos", "data": "09/10"}
-        ]
-      }
-    },
-    {
-      "hora": "16:00",
-      "times": [
-        {"nome": "Ceará", "posicao": 14},
-        {"nome": "Fluminense", "posicao": 6}
-      ],
-      "ultimos": {
-        "Ceará": [
-          {"resultado": "D", "placar": "0x1 Fluminense", "data": "29/10"},
-          {"resultado": "E", "placar": "1x1 Botafogo RJ", "data": "24/10"},
-          {"resultado": "D", "placar": "0x2 Flamengo", "data": "19/10"},
-          {"resultado": "V", "placar": "2x1 Fortaleza", "data": "14/10"},
-          {"resultado": "D", "placar": "1x3 Corinthians", "data": "10/10"}
-        ],
-        "Fluminense": [
-          {"resultado": "V", "placar": "1x0 Ceará", "data": "29/10"},
-          {"resultado": "V", "placar": "2x0 Cruzeiro MG", "data": "25/10"},
-          {"resultado": "E", "placar": "1x1 Corinthians", "data": "19/10"},
-          {"resultado": "D", "placar": "0x1 Palmeiras", "data": "13/10"},
-          {"resultado": "V", "placar": "3x2 Sport Recife", "data": "09/10"}
-        ]
-      }
-    },
-    {
-      "hora": "18:30",
-      "times": [
-        {"nome": "Juventude", "posicao": 19},
-        {"nome": "Palmeiras", "posicao": 1}
-      ],
-      "ultimos": {
-        "Juventude": [
-          {"resultado": "D", "placar": "1x3 Grêmio RS", "data": "26/10"},
-          {"resultado": "E", "placar": "1x1 São Paulo", "data": "21/10"},
-          {"resultado": "V", "placar": "1x0 Vasco da Gama", "data": "16/10"},
-          {"resultado": "D", "placar": "0x3 Atlético MG", "data": "12/10"},
-          {"resultado": "V", "placar": "2x1 Bahia", "data": "08/10"}
-        ],
-        "Palmeiras": [
-          {"resultado": "V", "placar": "4x0 LDU", "data": "30/10"},
-          {"resultado": "E", "placar": "0x0 Cruzeiro MG", "data": "26/10"},
-          {"resultado": "V", "placar": "1x0 RB Bragantino", "data": "22/10"},
-          {"resultado": "E", "placar": "1x1 Corinthians", "data": "18/10"},
-          {"resultado": "D", "placar": "0x2 Flamengo", "data": "14/10"}
-        ]
-      }
-    },
-    {
-      "hora": "18:30",
-      "times": [
-        {"nome": "Internacional RS", "posicao": 15},
-        {"nome": "Atlético MG", "posicao": 13}
-      ],
-      "ultimos": {
-        "Internacional RS": [
-          {"resultado": "V", "placar": "7x0 São Gabriel", "data": "29/10"},
-          {"resultado": "E", "placar": "1x1 Grêmio RS", "data": "25/10"},
-          {"resultado": "D", "placar": "0x2 Flamengo", "data": "21/10"},
-          {"resultado": "V", "placar": "2x0 Juventude", "data": "16/10"},
-          {"resultado": "E", "placar": "2x2 Corinthians", "data": "12/10"}
         ],
         "Atlético MG": [
           {"resultado": "V", "placar": "3x1 Ind. Valle", "data": "28/10"},
@@ -210,11 +27,14 @@
       }
     },
     {
-      "hora": "20:30",
+      "campeonato": "BRASILEIRÃO SÉRIE A - 2025",
+      "rodada": 35,
+      "hora": "18:00",
       "times": [
         {"nome": "Vasco da Gama", "posicao": 8},
-        {"nome": "São Paulo", "posicao": 9}
+        {"nome": "Juventude", "posicao": 19}
       ],
+      "linhas": {"golsPadrao": 2.5, "bttsDisponivel": true},
       "ultimos": {
         "Vasco da Gama": [
           {"resultado": "V", "placar": "3x0 RB Bragantino", "data": "26/10"},
@@ -223,12 +43,222 @@
           {"resultado": "D", "placar": "0x1 Juventude", "data": "16/10"},
           {"resultado": "E", "placar": "2x2 Corinthians", "data": "12/10"}
         ],
+        "Juventude": [
+          {"resultado": "D", "placar": "1x3 Grêmio RS", "data": "26/10"},
+          {"resultado": "E", "placar": "1x1 São Paulo", "data": "21/10"},
+          {"resultado": "V", "placar": "1x0 Vasco da Gama", "data": "16/10"},
+          {"resultado": "D", "placar": "0x3 Atlético MG", "data": "12/10"},
+          {"resultado": "V", "placar": "2x1 Bahia", "data": "08/10"}
+        ]
+      }
+    },
+    {
+      "campeonato": "BRASILEIRÃO SÉRIE A - 2025",
+      "rodada": 35,
+      "hora": "18:30",
+      "times": [
+        {"nome": "Internacional RS", "posicao": 15},
+        {"nome": "Bahia", "posicao": 5}
+      ],
+      "linhas": {"golsPadrao": 2.5, "bttsDisponivel": true},
+      "ultimos": {
+        "Internacional RS": [
+          {"resultado": "V", "placar": "7x0 São Gabriel", "data": "29/10"},
+          {"resultado": "E", "placar": "1x1 Grêmio RS", "data": "25/10"},
+          {"resultado": "D", "placar": "0x2 Flamengo", "data": "21/10"},
+          {"resultado": "V", "placar": "2x0 Juventude", "data": "16/10"},
+          {"resultado": "E", "placar": "2x2 Corinthians", "data": "12/10"}
+        ],
+        "Bahia": [
+          {"resultado": "D", "placar": "0x2 São Paulo", "data": "25/10"},
+          {"resultado": "E", "placar": "0x0 Sport Recife", "data": "21/10"},
+          {"resultado": "V", "placar": "2x0 Fortaleza", "data": "16/10"},
+          {"resultado": "D", "placar": "0x2 Santos", "data": "12/10"},
+          {"resultado": "V", "placar": "3x2 Vitória BA", "data": "08/10"}
+        ]
+      }
+    },
+    {
+      "campeonato": "BRASILEIRÃO SÉRIE A - 2025",
+      "rodada": 35,
+      "hora": "21:00",
+      "times": [
+        {"nome": "São Paulo", "posicao": 9},
+        {"nome": "RB Bragantino", "posicao": 12}
+      ],
+      "linhas": {"golsPadrao": 2.5, "bttsDisponivel": true},
+      "ultimos": {
         "São Paulo": [
           {"resultado": "V", "placar": "2x0 Bahia", "data": "25/10"},
           {"resultado": "E", "placar": "1x1 Juventude", "data": "21/10"},
           {"resultado": "V", "placar": "2x0 Santos", "data": "17/10"},
           {"resultado": "D", "placar": "0x2 Flamengo", "data": "13/10"},
           {"resultado": "E", "placar": "1x1 Internacional RS", "data": "09/10"}
+        ],
+        "RB Bragantino": [
+          {"resultado": "D", "placar": "0x3 Vasco da Gama", "data": "26/10"},
+          {"resultado": "D", "placar": "0x1 Palmeiras", "data": "22/10"},
+          {"resultado": "E", "placar": "2x2 Flamengo", "data": "18/10"},
+          {"resultado": "V", "placar": "1x0 Cruzeiro MG", "data": "13/10"},
+          {"resultado": "D", "placar": "0x2 Santos", "data": "09/10"}
+        ]
+      }
+    }
+  ],
+  "2025-11-09": [
+    {
+      "campeonato": "BRASILEIRÃO SÉRIE A - 2025",
+      "rodada": 35,
+      "hora": "16:00",
+      "times": [
+        {"nome": "Corinthians", "posicao": 10},
+        {"nome": "Ceará", "posicao": 14}
+      ],
+      "linhas": {"golsPadrao": 2.5, "bttsDisponivel": true},
+      "ultimos": {
+        "Corinthians": [
+          {"resultado": "D", "placar": "0x1 Vitória BA", "data": "25/10"},
+          {"resultado": "E", "placar": "1x1 Palmeiras", "data": "21/10"},
+          {"resultado": "V", "placar": "2x1 Fluminense", "data": "16/10"},
+          {"resultado": "D", "placar": "0x1 RB Bragantino", "data": "12/10"},
+          {"resultado": "V", "placar": "1x0 Bahia", "data": "08/10"}
+        ],
+        "Ceará": [
+          {"resultado": "D", "placar": "0x1 Fluminense", "data": "29/10"},
+          {"resultado": "E", "placar": "1x1 Botafogo RJ", "data": "24/10"},
+          {"resultado": "D", "placar": "0x2 Flamengo", "data": "19/10"},
+          {"resultado": "V", "placar": "2x1 Fortaleza", "data": "14/10"},
+          {"resultado": "D", "placar": "1x3 Corinthians", "data": "10/10"}
+        ]
+      }
+    },
+    {
+      "campeonato": "BRASILEIRÃO SÉRIE A - 2025",
+      "rodada": 35,
+      "hora": "16:00",
+      "times": [
+        {"nome": "Cruzeiro MG", "posicao": 3},
+        {"nome": "Fluminense", "posicao": 6}
+      ],
+      "linhas": {"golsPadrao": 2.5, "bttsDisponivel": true},
+      "ultimos": {
+        "Cruzeiro MG": [
+          {"resultado": "E", "placar": "0x0 Palmeiras", "data": "26/10"},
+          {"resultado": "V", "placar": "1x0 Fortaleza", "data": "22/10"},
+          {"resultado": "D", "placar": "0x1 RB Bragantino", "data": "18/10"},
+          {"resultado": "E", "placar": "1x1 Atlético MG", "data": "15/10"},
+          {"resultado": "V", "placar": "2x0 Santos", "data": "11/10"}
+        ],
+        "Fluminense": [
+          {"resultado": "V", "placar": "1x0 Ceará", "data": "29/10"},
+          {"resultado": "V", "placar": "2x0 Cruzeiro MG", "data": "25/10"},
+          {"resultado": "E", "placar": "1x1 Corinthians", "data": "19/10"},
+          {"resultado": "D", "placar": "0x1 Palmeiras", "data": "13/10"},
+          {"resultado": "V", "placar": "3x2 Sport Recife", "data": "09/10"}
+        ]
+      }
+    },
+    {
+      "campeonato": "BRASILEIRÃO SÉRIE A - 2025",
+      "rodada": 35,
+      "hora": "16:00",
+      "times": [
+        {"nome": "Vitória BA", "posicao": 17},
+        {"nome": "Botafogo RJ", "posicao": 7}
+      ],
+      "linhas": {"golsPadrao": 2.5, "bttsDisponivel": true},
+      "ultimos": {
+        "Vitória BA": [
+          {"resultado": "V", "placar": "1x0 Corinthians", "data": "25/10"},
+          {"resultado": "D", "placar": "0x2 Botafogo RJ", "data": "19/10"},
+          {"resultado": "V", "placar": "1x0 Mirassol", "data": "14/10"},
+          {"resultado": "D", "placar": "1x3 Bahia", "data": "09/10"},
+          {"resultado": "V", "placar": "2x1 RB Bragantino", "data": "04/10"}
+        ],
+        "Botafogo RJ": [
+          {"resultado": "E", "placar": "2x2 Santos", "data": "26/10"},
+          {"resultado": "V", "placar": "3x1 Bahia", "data": "22/10"},
+          {"resultado": "D", "placar": "1x2 Palmeiras", "data": "18/10"},
+          {"resultado": "V", "placar": "2x0 Vitória BA", "data": "14/10"},
+          {"resultado": "D", "placar": "1x3 Ceará", "data": "09/10"}
+        ]
+      }
+    },
+    {
+      "campeonato": "BRASILEIRÃO SÉRIE A - 2025",
+      "rodada": 35,
+      "hora": "18:30",
+      "times": [
+        {"nome": "Flamengo", "posicao": 2},
+        {"nome": "Santos", "posicao": 16}
+      ],
+      "linhas": {"golsPadrao": 2.5, "bttsDisponivel": true},
+      "ultimos": {
+        "Flamengo": [
+          {"resultado": "D", "placar": "0x1 Fortaleza", "data": "25/10"},
+          {"resultado": "V", "placar": "2x0 Vasco da Gama", "data": "21/10"},
+          {"resultado": "E", "placar": "2x2 RB Bragantino", "data": "18/10"},
+          {"resultado": "V", "placar": "2x0 Palmeiras", "data": "14/10"},
+          {"resultado": "E", "placar": "1x1 Ceará", "data": "10/10"}
+        ],
+        "Santos": [
+          {"resultado": "E", "placar": "2x2 Botafogo", "data": "26/10"},
+          {"resultado": "D", "placar": "0x1 EC Vitória", "data": "20/10"},
+          {"resultado": "V", "placar": "3x1 Corinthians", "data": "15/10"},
+          {"resultado": "D", "placar": "0x3 Ceará SC", "data": "05/10"},
+          {"resultado": "E", "placar": "1x1 Grêmio", "data": "01/10"}
+        ]
+      }
+    },
+    {
+      "campeonato": "BRASILEIRÃO SÉRIE A - 2025",
+      "rodada": 35,
+      "hora": "20:30",
+      "times": [
+        {"nome": "Mirassol", "posicao": 4},
+        {"nome": "Palmeiras", "posicao": 1}
+      ],
+      "linhas": {"golsPadrao": 2.5, "bttsDisponivel": true},
+      "ultimos": {
+        "Mirassol": [
+          {"resultado": "V", "placar": "2x1 Sport Recife", "data": "25/10"},
+          {"resultado": "D", "placar": "0x3 Flamengo", "data": "21/10"},
+          {"resultado": "E", "placar": "1x1 Vasco da Gama", "data": "18/10"},
+          {"resultado": "E", "placar": "0x0 Cruzeiro MG", "data": "14/10"},
+          {"resultado": "V", "placar": "1x0 Fluminense", "data": "09/10"}
+        ],
+        "Palmeiras": [
+          {"resultado": "V", "placar": "4x0 LDU", "data": "30/10"},
+          {"resultado": "E", "placar": "0x0 Cruzeiro MG", "data": "26/10"},
+          {"resultado": "V", "placar": "1x0 RB Bragantino", "data": "22/10"},
+          {"resultado": "E", "placar": "1x1 Corinthians", "data": "18/10"},
+          {"resultado": "D", "placar": "0x2 Flamengo", "data": "14/10"}
+        ]
+      }
+    },
+    {
+      "campeonato": "BRASILEIRÃO SÉRIE A - 2025",
+      "rodada": 35,
+      "hora": "20:30",
+      "times": [
+        {"nome": "Fortaleza", "posicao": 18},
+        {"nome": "Grêmio RS", "posicao": 11}
+      ],
+      "linhas": {"golsPadrao": 2.5, "bttsDisponivel": true},
+      "ultimos": {
+        "Fortaleza": [
+          {"resultado": "V", "placar": "1x0 Flamengo", "data": "25/10"},
+          {"resultado": "D", "placar": "0x2 Bahia", "data": "20/10"},
+          {"resultado": "E", "placar": "1x1 Goiás", "data": "15/10"},
+          {"resultado": "V", "placar": "2x1 Ceará", "data": "10/10"},
+          {"resultado": "D", "placar": "0x2 Palmeiras", "data": "06/10"}
+        ],
+        "Grêmio RS": [
+          {"resultado": "V", "placar": "3x1 Juventude", "data": "26/10"},
+          {"resultado": "E", "placar": "1x1 Internacional RS", "data": "22/10"},
+          {"resultado": "D", "placar": "0x1 Palmeiras", "data": "18/10"},
+          {"resultado": "V", "placar": "2x1 Bahia", "data": "13/10"},
+          {"resultado": "D", "placar": "1x3 Santos", "data": "09/10"}
         ]
       }
     }
