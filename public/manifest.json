@@ -1,6 +1,7 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
+  "short_name": "Futebol",
+  "name": "Futebol – Palpites e Histórico dos Times",
+  "description": "Palpite nos jogos! Veja o histórico dos times e torne-se o craque das previsões. Escolha Resultado ou Dupla Chance e, se quiser, adicione Gols.",
   "icons": [
     {
       "src": "favicon.ico",
@@ -20,6 +21,6 @@
   ],
   "start_url": ".",
   "display": "standalone",
-  "theme_color": "#000000",
-  "background_color": "#ffffff"
+  "theme_color": "#0F1624",
+  "background_color": "#0A0F14"
 }
