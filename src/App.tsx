@@ -287,6 +287,10 @@ const styles: { [key: string]: React.CSSProperties } = {
     gap: 6,
     flexWrap: "wrap" as const,
   },
+  teamFlag: {
+    fontSize: "0.8rem",
+    color: "#ecff9eff",
+  },
   vsDivider: {
     fontWeight: 900,
     fontSize: "0.88rem",
@@ -405,8 +409,9 @@ const styles: { [key: string]: React.CSSProperties } = {
   },
   selectHelp: {
     color: "#A9B6C9",
+    display: "block",
     fontSize: ".86rem",
-    marginTop: 12,
+    marginTop: 8,
   },
   // --- HISTÓRICO (Dentro do Body) ---
   historicoContainer: {
@@ -876,14 +881,14 @@ const CardJogo: React.FC<CardJogoProps> = ({
           <div style={styles.teamsArena}>
             <div style={styles.teamBoxLeft}>
               <div style={styles.teamName}>
-                {jogo.times[0].nome}
+                <span style={styles.teamFlag}>Casa</span> {jogo.times[0].nome}
                 <span style={styles.teamPosicaoPill}>{jogo.times[0].posicao}º</span>
               </div>
             </div>
             <span style={styles.vsDivider}>VS</span>
             <div style={styles.teamBoxRight}>
               <div style={styles.teamName}>
-                {jogo.times[1].nome}
+                <span style={styles.teamFlag}>Visitante</span>{jogo.times[1].nome}
                 <span style={styles.teamPosicaoPill}>{jogo.times[1].posicao}º</span>
               </div>
             </div>
