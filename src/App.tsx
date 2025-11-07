@@ -89,10 +89,7 @@ const styles: { [key: string]: React.CSSProperties } = {
     fontWeight: 900,
     letterSpacing: "0.01em",
     marginBottom: 10,
-    backgroundImage: "linear-gradient(90deg, #8A5CF6 0%, #20C6ED 100%)",
-    WebkitBackgroundClip: "text",
-    backgroundClip: "text",
-    WebkitTextFillColor: "transparent",
+    color: "#8A5CF6",
   },
   pHeader: {
     color: "#D5DCE8",
@@ -101,6 +98,31 @@ const styles: { [key: string]: React.CSSProperties } = {
     fontWeight: 500,
     lineHeight: 1.55,
   },
+  legendRow: {
+    display: "flex",
+    alignItems: "center",
+    gap: 12,
+    marginTop: 10,
+    color: "#C7D0E0",
+    fontWeight: 700,
+    fontSize: ".9rem",
+  },
+  legendItem: {
+    display: "inline-flex",
+    alignItems: "center",
+    gap: 8,
+  },
+  legendDot: {
+    width: 12,
+    height: 12,
+    borderRadius: 3,
+    border: "1px solid #2F3648",
+    boxShadow: "0 1px 3px rgba(0,0,0,0.35)",
+    display: "inline-block",
+  },
+  legendDotV: { background: "#4CAF50" },
+  legendDotE: { background: "#FFC107" },
+  legendDotD: { background: "#F44336" },
   pWarning: {
     color: "#F6E0A6", // Amarelo/verde suave para avisos
     fontSize: "0.98rem",
@@ -112,6 +134,17 @@ const styles: { [key: string]: React.CSSProperties } = {
     backgroundColor: "rgba(246, 224, 166, 0.05)",
     padding: "10px 12px",
     borderRadius: 8
+  },
+  warningTitle: {
+    fontWeight: 800,
+    color: "#F6E0A6",
+    marginBottom: 8,
+  },
+  infoList: {
+    margin: 0,
+    paddingLeft: 18,
+    color: "#ECDDA0",
+    lineHeight: 1.5,
   },
   // --- CARD DE JOGO (BASE) ---
   sectionTitle: {
@@ -845,29 +878,6 @@ const normalizarDataCurta = (txt: string): string => {
   return s;
 };
 
-const parseDdMm = (txt: string, year: number): Date | null => {
-  const norm = normalizarDataCurta(txt);
-  const m = norm.match(/^\s*(\d{2})\/(\d{2})\s*$/);
-  if (!m) return null;
-  const day = parseInt(m[1], 10);
-  const month = parseInt(m[2], 10) - 1;
-  const d = new Date(year, month, day);
-  return isNaN(d.getTime()) ? null : d;
-};
-
-// Obtém a data mais recente (dd/MM) de uma lista de históricos usando o ano da partida
-const obterDataMaisRecente = (lst: HistoricoItem[] = [], year: number): string | null => {
-  let best: { d: Date; txt: string } | null = null;
-  for (const item of lst) {
-    const txtNorm = normalizarDataCurta(item.data);
-    const d = parseDdMm(txtNorm, year);
-    if (!d) continue;
-    if (!best || d > best.d) {
-      best = { d, txt: txtNorm };
-    }
-  }
-  return best ? best.txt : null;
-};
 
 // ----------------------------------------------------
 // COMPONENTE CARD JOGO (Accordion)
@@ -904,9 +914,6 @@ const CardJogo: React.FC<CardJogoProps> = ({
   const ultimos: UltimosPorTime = jogo.ultimos || {};
 
   const palpiteAtual = formData[jogoKey];
-  const anoPartida = new Date(dia).getFullYear();
-  const atualizadoAteT1 = obterDataMaisRecente(ultimos[times[0]] || [], anoPartida);
-  const atualizadoAteT2 = obterDataMaisRecente(ultimos[times[1]] || [], anoPartida);
 
   const getEmojiStyle = (resultado: string): React.CSSProperties => {
     if (resultado === "V") return styles.emojiV;
@@ -1061,7 +1068,7 @@ const CardJogo: React.FC<CardJogoProps> = ({
           {/* Histórico Time 1 */}
           <div style={styles.historicoTime}>
             <h3 style={styles.ultimosTitle}>
-              {jogo.times[0].nome} ({jogo.times[0].posicao}º) Últimos Jogos{atualizadoAteT1 ? ` (até ${atualizadoAteT1})` : ''}:
+              {jogo.times[0].nome} ({jogo.times[0].posicao}º) Últimos Jogos:
             </h3>
             <ul style={styles.ultimosList}>
               {(ultimos[times[0]] || []).map((item, i) => (
@@ -1101,7 +1108,7 @@ const CardJogo: React.FC<CardJogoProps> = ({
           {/* Histórico Time 2 */}
           <div style={styles.historicoTime}>
             <h3 style={styles.ultimosTitle}>
-              {jogo.times[1].nome} ({jogo.times[1].posicao}º) Últimos Jogos{atualizadoAteT2 ? ` (até ${atualizadoAteT2})` : ''}:
+              {jogo.times[1].nome} ({jogo.times[1].posicao}º) Últimos Jogos:
             </h3>
             <ul style={styles.ultimosList}>
               {(ultimos[times[1]] || []).map((item, i) => (
@@ -1309,22 +1316,30 @@ export default function App() {
               <header style={rstyles.header}>
                 <h1 style={rstyles.h1}>Futebol ⚽</h1>
                 <p style={rstyles.pHeader}>
-                  Palpite nos jogos! Veja o histórico dos times{' '}
-                  <span style={{ filter: 'brightness(.9)' }}>🟩🟨🟥</span> e torne-se o
+                  Palpite nos jogos! Veja o histórico dos times e torne-se o
                   craque das previsões.
                 </p>
-                <p style={rstyles.pWarning}>
-                  <span style={{ fontWeight: 700 }}>Atenção:</span><br /><br />
-                  Você pode escolher entre **Resultado** OU **Dupla Chance** (não os dois) e adicionar **Gols**, se quiser.<br /><br />
-                  Não é obrigatório escolher todos os jogos e mercados, mas isso influência no valor final.<br /><br />
-                  A **Posição** atual na tabela do Brasileirão (ex: 1º) aparece junto ao nome do time.
-                </p>
+                <div style={rstyles.legendRow}>
+                  <span style={rstyles.legendItem}>
+                    <span style={{ ...rstyles.legendDot, ...rstyles.legendDotV }} aria-hidden="true" /> Vitória
+                  </span>
+                  <span style={rstyles.legendItem}>
+                    <span style={{ ...rstyles.legendDot, ...rstyles.legendDotE }} aria-hidden="true" /> Empate
+                  </span>
+                  <span style={rstyles.legendItem}>
+                    <span style={{ ...rstyles.legendDot, ...rstyles.legendDotD }} aria-hidden="true" /> Derrota
+                  </span>
+                </div>
+                <div style={rstyles.pWarning}>
+                  <div style={rstyles.warningTitle}>Atenção</div>
+                  <ul style={rstyles.infoList}>
+                    <li>Escolha um mercado: <strong>Resultado</strong> ou <strong>Dupla Chance</strong> (apenas um).</li>
+                    <li>Opcional: adicione <strong>Gols</strong>.</li>
+                    <li>Não é obrigatório selecionar todos os jogos/mercados; isso impacta o valor final.</li>
+                    <li>A <strong>Posição</strong> atual no Brasileirão (ex.: 1º) aparece ao lado do nome do time.</li>
+                  </ul>
+                </div>
               </header>
-              <div style={rstyles.expandControls}>
-                <button type="button" style={rstyles.expandButton} onClick={toggleTodos}>
-                  {todosAbertos ? "Recolher todos os jogos" : "Expandir todos os jogos"}
-                </button>
-              </div>
               <div style={styles.nomeBox}>
                 <label htmlFor="nomeUsuario">
                   <input
@@ -1340,9 +1355,13 @@ export default function App() {
                   />
                 </label>
               </div>
-              {/* Rodapé removido da sidebar para não ficar no meio da página */}
             </aside>
             <section style={rstyles.contentPanel}>
+              <div style={rstyles.expandControls}>
+                <button type="button" style={rstyles.expandButton} onClick={toggleTodos}>
+                  {todosAbertos ? "Recolher todos os jogos" : "Expandir todos os jogos"}
+                </button>
+              </div>
               {Object.entries(jogos).map(([dia, partidas]) => (
                 <section key={dia}>
             <h2 style={styles.sectionTitle}>{formatarDataPt(dia)}</h2>
