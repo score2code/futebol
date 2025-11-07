@@ -818,8 +818,36 @@ const parsePlacarItem = (placar: string): { golsPro: number; golsContra: number;
 };
 
 // Parse de data no formato 'dd/MM' assumindo um ano fornecido
+// Normaliza entrada para sempre exibir 'dd/MM' na UI
+const normalizarDataCurta = (txt: string): string => {
+  const s = (txt || "").trim();
+  // ISO 'YYYY-MM-DD' -> 'dd/MM'
+  const iso = s.match(/^\s*(\d{4})-(\d{2})-(\d{2})\s*$/);
+  if (iso) return `${iso[3]}/${iso[2]}`;
+  // Formatos com barra: 'dd/MM' ou 'MM/DD' -> decidir por valores
+  const slash = s.match(/^\s*(\d{1,2})\/(\d{1,2})\s*$/);
+  if (slash) {
+    const a = parseInt(slash[1], 10);
+    const b = parseInt(slash[2], 10);
+    // se segundo > 12 e primeiro <= 12, consideramos 'MM/DD' e invertimos
+    if (b > 12 && a <= 12) {
+      return `${String(b).padStart(2, "0")}/${String(a).padStart(2, "0")}`;
+    }
+    return `${String(a).padStart(2, "0")}/${String(b).padStart(2, "0")}`;
+  }
+  // 'dd-MM' ou 'dd.MM' -> normaliza para 'dd/MM'
+  const dashOrDot = s.match(/^\s*(\d{1,2})[-.](\d{1,2})\s*$/);
+  if (dashOrDot) {
+    return `${String(parseInt(dashOrDot[1], 10)).padStart(2, "0")}/${String(
+      parseInt(dashOrDot[2], 10)
+    ).padStart(2, "0")}`;
+  }
+  return s;
+};
+
 const parseDdMm = (txt: string, year: number): Date | null => {
-  const m = txt.match(/^\s*(\d{2})\/(\d{2})\s*$/);
+  const norm = normalizarDataCurta(txt);
+  const m = norm.match(/^\s*(\d{2})\/(\d{2})\s*$/);
   if (!m) return null;
   const day = parseInt(m[1], 10);
   const month = parseInt(m[2], 10) - 1;
@@ -831,10 +859,11 @@ const parseDdMm = (txt: string, year: number): Date | null => {
 const obterDataMaisRecente = (lst: HistoricoItem[] = [], year: number): string | null => {
   let best: { d: Date; txt: string } | null = null;
   for (const item of lst) {
-    const d = parseDdMm(item.data, year);
+    const txtNorm = normalizarDataCurta(item.data);
+    const d = parseDdMm(txtNorm, year);
     if (!d) continue;
     if (!best || d > best.d) {
-      best = { d, txt: item.data };
+      best = { d, txt: txtNorm };
     }
   }
   return best ? best.txt : null;
@@ -1040,7 +1069,7 @@ const CardJogo: React.FC<CardJogoProps> = ({
                   <span style={getEmojiStyle(item.resultado)}>
                     {emojiResultado(item.resultado)}
                   </span>
-                  <span style={{ minWidth: 50 }}>{formatarDataPt(item.data, true)}</span>
+                  <span style={{ minWidth: 50 }}>{normalizarDataCurta(item.data)}</span>
                   {(() => {
                     const p = parsePlacarItem(item.placar);
                     const isFora = item.local === "fora";
@@ -1080,7 +1109,7 @@ const CardJogo: React.FC<CardJogoProps> = ({
                   <span style={getEmojiStyle(item.resultado)}>
                     {emojiResultado(item.resultado)}
                   </span>
-                  <span style={{ minWidth: 50 }}>{formatarDataPt(item.data, true)}</span>
+                  <span style={{ minWidth: 50 }}>{normalizarDataCurta(item.data)}</span>
                   {(() => {
                     const p = parsePlacarItem(item.placar);
                     const isFora = item.local === "fora";
