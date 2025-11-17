@@ -5,24 +5,24 @@
       "rodada": 36,
       "hora": "20:30",
       "times": [
-        {"nome": "Botafogo RJ", "posicao": 7},
+        {"nome": "Botafogo RJ", "posicao": 6},
         {"nome": "Sport Recife", "posicao": 20}
       ],
       "linhas": {"golsPadrao": 2.5, "bttsDisponivel": true},
       "ultimos": {
         "Botafogo RJ": [
+          {"resultado": "E", "placar": "0x0 Vitória BA", "data": "09/11"},
           {"resultado": "V", "placar": "3x0 Vasco da Gama", "data": "05/11"},
           {"resultado": "E", "placar": "0x0 Mirassol", "data": "01/11"},
           {"resultado": "E", "placar": "2x2 Santos", "data": "26/10"},
-          {"resultado": "V", "placar": "3x1 Bahia", "data": "22/10"},
-          {"resultado": "D", "placar": "1x2 Palmeiras", "data": "18/10"}
+          {"resultado": "V", "placar": "3x1 Bahia", "data": "22/10"}
         ],
         "Sport Recife": [
+          {"resultado": "D", "placar": "1x5 Flamengo", "data": "15/11"},
           {"resultado": "D", "placar": "0x2 Juventude", "data": "05/11"},
           {"resultado": "D", "placar": "0x3 Flamengo", "data": "01/11"},
           {"resultado": "D", "placar": "1x2 Mirassol", "data": "25/10"},
-          {"resultado": "E", "placar": "0x0 Bahia", "data": "21/10"},
-          {"resultado": "V", "placar": "1x0 Fortaleza", "data": "16/10"}
+          {"resultado": "E", "placar": "0x0 Bahia", "data": "21/10"}
         ]
       }
     }
@@ -33,17 +33,17 @@
       "rodada": 36,
       "hora": "19:30",
       "times": [
-        {"nome": "Palmeiras", "posicao": 1},
+        {"nome": "Palmeiras", "posicao": 2},
         {"nome": "Vitória BA", "posicao": 17}
       ],
       "linhas": {"golsPadrao": 2.5, "bttsDisponivel": true},
       "ultimos": {
         "Palmeiras": [
+          {"resultado": "D", "placar": "0x1 Santos", "data": "15/11"},
+          {"resultado": "D", "placar": "1x2 Mirassol", "data": "09/11"},
           {"resultado": "V", "placar": "2x0 Santos", "data": "06/11"},
           {"resultado": "V", "placar": "2x0 Juventude", "data": "02/11"},
-          {"resultado": "E", "placar": "0x0 Cruzeiro MG", "data": "26/10"},
-          {"resultado": "V", "placar": "5x1 RB Bragantino", "data": "15/10"},
-          {"resultado": "D", "placar": "2x3 Flamengo", "data": "19/10"}
+          {"resultado": "E", "placar": "0x0 Cruzeiro MG", "data": "26/10"}
         ],
         "Vitória BA": [
           {"resultado": "V", "placar": "1x0 Internacional RS", "data": "05/11"},
@@ -59,8 +59,8 @@
       "rodada": 36,
       "hora": "21:30",
       "times": [
-        {"nome": "Fluminense", "posicao": 6},
-        {"nome": "Flamengo", "posicao": 2}
+        {"nome": "Fluminense", "posicao": 7},
+        {"nome": "Flamengo", "posicao": 1}
       ],
       "linhas": {"golsPadrao": 2.5, "bttsDisponivel": true},
       "ultimos": {
@@ -111,8 +111,8 @@
       "rodada": 36,
       "hora": "21:30",
       "times": [
-        {"nome": "Grêmio RS", "posicao": 11},
-        {"nome": "Vasco da Gama", "posicao": 8}
+        {"nome": "Grêmio RS", "posicao": 14},
+        {"nome": "Vasco da Gama", "posicao": 11}
       ],
       "linhas": {"golsPadrao": 2.5, "bttsDisponivel": true},
       "ultimos": {
@@ -124,11 +124,11 @@
           {"resultado": "V", "placar": "2x1 Bahia", "data": "13/10"}
         ],
         "Vasco da Gama": [
+          {"resultado": "D", "placar": "1x3 Juventude", "data": "09/11"},
           {"resultado": "D", "placar": "0x3 Botafogo RJ", "data": "05/11"},
           {"resultado": "V", "placar": "3x0 RB Bragantino", "data": "26/10"},
           {"resultado": "D", "placar": "0x2 Flamengo", "data": "21/10"},
-          {"resultado": "E", "placar": "1x1 Mirassol", "data": "18/10"},
-          {"resultado": "D", "placar": "0x1 Juventude", "data": "16/10"}
+          {"resultado": "E", "placar": "1x1 Mirassol", "data": "18/10"}
         ]
       }
     }
@@ -139,17 +139,17 @@
       "rodada": 36,
       "hora": "16:00",
       "times": [
-        {"nome": "Juventude", "posicao": 19},
+        {"nome": "Juventude", "posicao": 18},
         {"nome": "Cruzeiro MG", "posicao": 3}
       ],
       "linhas": {"golsPadrao": 2.5, "bttsDisponivel": true},
       "ultimos": {
         "Juventude": [
+          {"resultado": "V", "placar": "3x1 Vasco da Gama", "data": "09/11"},
           {"resultado": "V", "placar": "2x0 Sport Recife", "data": "05/11"},
           {"resultado": "D", "placar": "0x2 Palmeiras", "data": "02/11"},
           {"resultado": "D", "placar": "1x3 Grêmio RS", "data": "26/10"},
-          {"resultado": "E", "placar": "1x1 São Paulo", "data": "21/10"},
-          {"resultado": "V", "placar": "1x0 Vasco da Gama", "data": "16/10"}
+          {"resultado": "E", "placar": "1x1 São Paulo", "data": "21/10"}
         ],
         "Cruzeiro MG": [
           {"resultado": "V", "placar": "1x0 Grêmio RS", "data": "05/11"},
@@ -166,16 +166,16 @@
       "hora": "18:00",
       "times": [
         {"nome": "Bahia", "posicao": 5},
-        {"nome": "Fortaleza", "posicao": 18}
+        {"nome": "Fortaleza", "posicao": 19}
       ],
       "linhas": {"golsPadrao": 2.5, "bttsDisponivel": true},
       "ultimos": {
         "Bahia": [
+          {"resultado": "E", "placar": "2x2 Internacional RS", "data": "08/11"},
           {"resultado": "D", "placar": "0x3 Atlético MG", "data": "05/11"},
           {"resultado": "V", "placar": "2x1 RB Bragantino", "data": "02/11"},
           {"resultado": "D", "placar": "0x2 São Paulo", "data": "25/10"},
-          {"resultado": "E", "placar": "0x0 Sport Recife", "data": "21/10"},
-          {"resultado": "V", "placar": "2x0 Fortaleza", "data": "16/10"}
+          {"resultado": "V", "placar": "1x0 Internacional RS", "data": "22/10"}
         ],
         "Fortaleza": [
           {"resultado": "V", "placar": "1x0 Flamengo", "data": "25/10"},
@@ -191,7 +191,7 @@
       "rodada": 36,
       "hora": "19:30",
       "times": [
-        {"nome": "Corinthians", "posicao": 10},
+        {"nome": "Corinthians", "posicao": 13},
         {"nome": "São Paulo", "posicao": 9}
       ],
       "linhas": {"golsPadrao": 2.5, "bttsDisponivel": true},
@@ -217,7 +217,7 @@
       "rodada": 36,
       "hora": "21:30",
       "times": [
-        {"nome": "Ceará", "posicao": 14},
+        {"nome": "Ceará", "posicao": 12},
         {"nome": "Internacional RS", "posicao": 15}
       ],
       "linhas": {"golsPadrao": 2.5, "bttsDisponivel": true},
@@ -230,11 +230,11 @@
           {"resultado": "D", "placar": "1x3 Corinthians", "data": "10/10"}
         ],
         "Internacional RS": [
+          {"resultado": "E", "placar": "2x2 Bahia", "data": "08/11"},
           {"resultado": "D", "placar": "0x1 Vitória BA", "data": "05/11"},
           {"resultado": "E", "placar": "0x0 Atlético MG", "data": "02/11"},
           {"resultado": "E", "placar": "1x1 Grêmio RS", "data": "25/10"},
-          {"resultado": "D", "placar": "0x2 Flamengo", "data": "21/10"},
-          {"resultado": "V", "placar": "2x0 Juventude", "data": "16/10"}
+          {"resultado": "D", "placar": "0x2 Flamengo", "data": "21/10"}
         ]
       }
     }
