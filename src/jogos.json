@@ -65,11 +65,11 @@
       "linhas": {"golsPadrao": 2.5, "bttsDisponivel": true},
       "ultimos": {
         "Fluminense": [
+          {"resultado": "E", "placar": "0x0 Cruzeiro MG", "data": "09/11"},
           {"resultado": "V", "placar": "1x0 Mirassol", "data": "06/11"},
+          {"resultado": "D", "placar": "0x2 Ceará", "data": "02/11"},
           {"resultado": "V", "placar": "1x0 Ceará", "data": "29/10"},
-          {"resultado": "V", "placar": "2x0 Cruzeiro MG", "data": "25/10"},
-          {"resultado": "E", "placar": "1x1 Corinthians", "data": "19/10"},
-          {"resultado": "D", "placar": "0x1 Palmeiras", "data": "13/10"}
+          {"resultado": "V", "placar": "1x0 Internacional RS", "data": "25/10"}
         ],
         "Flamengo": [
           {"resultado": "V", "placar": "5x1 Sport Recife", "data": "15/11"},
@@ -152,11 +152,11 @@
           {"resultado": "E", "placar": "1x1 São Paulo", "data": "21/10"}
         ],
         "Cruzeiro MG": [
+          {"resultado": "E", "placar": "0x0 Fluminense", "data": "09/11"},
           {"resultado": "V", "placar": "1x0 Grêmio RS", "data": "05/11"},
           {"resultado": "V", "placar": "3x1 Vitória BA", "data": "01/11"},
           {"resultado": "E", "placar": "0x0 Palmeiras", "data": "26/10"},
-          {"resultado": "V", "placar": "1x0 Fortaleza", "data": "18/10"},
-          {"resultado": "E", "placar": "1x1 Atlético MG", "data": "15/10"}
+          {"resultado": "V", "placar": "1x0 Fortaleza", "data": "18/10"}
         ]
       }
     },
@@ -205,10 +205,10 @@
         ],
         "São Paulo": [
           {"resultado": "E", "placar": "2x2 Flamengo", "data": "05/11"},
+          {"resultado": "V", "placar": "2x0 Vasco da Gama", "data": "02/11"},
           {"resultado": "V", "placar": "2x0 Bahia", "data": "25/10"},
-          {"resultado": "E", "placar": "1x1 Juventude", "data": "21/10"},
-          {"resultado": "V", "placar": "2x0 Santos", "data": "17/10"},
-          {"resultado": "D", "placar": "0x2 Flamengo", "data": "13/10"}
+          {"resultado": "D", "placar": "0x3 Mirassol", "data": "19/10"},
+          {"resultado": "V", "placar": "2x0 Santos", "data": "17/10"}
         ]
       }
     },
