@@ -91,18 +91,18 @@
       "linhas": {"golsPadrao": 2.5, "bttsDisponivel": true},
       "ultimos": {
         "Santos": [
+          {"resultado": "V", "placar": "1x0 Palmeiras", "data": "15/11"},
+          {"resultado": "D", "placar": "2x3 Flamengo", "data": "09/11"},
           {"resultado": "D", "placar": "0x2 Palmeiras", "data": "06/11"},
           {"resultado": "E", "placar": "2x2 Botafogo RJ", "data": "26/10"},
-          {"resultado": "D", "placar": "0x1 Vitória BA", "data": "20/10"},
-          {"resultado": "V", "placar": "3x1 Corinthians", "data": "15/10"},
-          {"resultado": "D", "placar": "0x3 Ceará", "data": "05/10"}
+          {"resultado": "D", "placar": "0x1 Vitória BA", "data": "20/10"}
         ],
         "Mirassol": [
+          {"resultado": "V", "placar": "2x1 Palmeiras", "data": "09/11"},
           {"resultado": "D", "placar": "0x1 Fluminense", "data": "06/11"},
           {"resultado": "E", "placar": "0x0 Botafogo RJ", "data": "01/11"},
           {"resultado": "V", "placar": "2x1 Sport Recife", "data": "25/10"},
-          {"resultado": "V", "placar": "3x0 São Paulo", "data": "19/10"},
-          {"resultado": "V", "placar": "3x1 Internacional RS", "data": "15/10"}
+          {"resultado": "V", "placar": "3x0 São Paulo", "data": "19/10"}
         ]
       }
     },
