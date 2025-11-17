@@ -72,11 +72,11 @@
           {"resultado": "D", "placar": "0x1 Palmeiras", "data": "13/10"}
         ],
         "Flamengo": [
+          {"resultado": "V", "placar": "5x1 Sport Recife", "data": "15/11"},
+          {"resultado": "V", "placar": "3x2 Santos", "data": "09/11"},
           {"resultado": "E", "placar": "2x2 São Paulo", "data": "05/11"},
           {"resultado": "V", "placar": "3x0 Sport Recife", "data": "01/11"},
-          {"resultado": "D", "placar": "0x1 Fortaleza", "data": "25/10"},
-          {"resultado": "V", "placar": "3x2 Palmeiras", "data": "19/10"},
-          {"resultado": "V", "placar": "3x0 Botafogo RJ", "data": "15/10"}
+          {"resultado": "D", "placar": "0x1 Fortaleza", "data": "25/10"}
         ]
       }
     },
