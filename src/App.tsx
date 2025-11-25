@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
-import jogosData from "./jogos.json";
+import rodadaData from "./rodada.json";
+import ultimosData from "./ultimos.json";
 
 // ----------------------------------------------------
 // TIPAGEM E DADOS ATUALIZADOS
@@ -26,7 +27,8 @@ type JogosPorDia = {
 };
 
 // CORREÇÃO: Uso de 'unknown' para resolver o erro de tipagem na importação do JSON.
-const jogos: JogosPorDia = (jogosData as unknown) as JogosPorDia;
+const jogos: JogosPorDia = (rodadaData as unknown) as JogosPorDia;
+const ultimosGlobal: UltimosPorTime = (ultimosData as unknown) as UltimosPorTime;
 
 type HistoricoItem = {
   resultado: string;
@@ -965,6 +967,7 @@ interface CardJogoProps {
   isAberto: boolean;
   toggleAccordion: () => void;
   styles: Styles;
+  ultimosGlobal: UltimosPorTime;
 }
 
 const CardJogo: React.FC<CardJogoProps> = ({
@@ -976,9 +979,10 @@ const CardJogo: React.FC<CardJogoProps> = ({
   isAberto,
   toggleAccordion,
   styles,
+  ultimosGlobal,
 }) => {
   const times: [string, string] = [jogo.times[0].nome, jogo.times[1].nome];
-  const ultimos: UltimosPorTime = jogo.ultimos || {};
+  const ultimos: UltimosPorTime = jogo.ultimos || ultimosGlobal || {};
   const ultimosTime1 = (ultimos[times[0]] || []);
   const ultimosTime2 = (ultimos[times[1]] || []);
 
@@ -1000,7 +1004,7 @@ const CardJogo: React.FC<CardJogoProps> = ({
     return (
       <>
         {before}
-        <a href={url} target="_blank" rel="noopener noreferrer" style={{ color: "#5AD2F6", textDecoration: "underline" }}>{url}</a>
+        <a href={url} target="_blank" rel="noopener noreferrer" style={{ color: "#5AD2F6", textDecoration: "underline" }}>Abrir notícia</a>
         {after}
       </>
     );
@@ -1573,6 +1577,7 @@ export default function App() {
                     isAberto={true}
                     toggleAccordion={() => {}}
                     styles={rstyles}
+                    ultimosGlobal={ultimosGlobal}
                   />
                 </section>
               )}

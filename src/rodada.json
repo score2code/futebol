@@ -1,0 +1,164 @@
+{
+  "2025-11-25": [
+    {
+      "campeonato": "BRASILEIRÃO SÉRIE A - 2025",
+      "rodada": 36,
+      "hora": "21:30",
+      "estadio": "Arena do Grêmio",
+      "cidade": "Porto Alegre",
+      "times": [
+        {"nome": "Grêmio RS", "posicao": 12},
+        {"nome": "Palmeiras", "posicao": 2}
+      ],
+      "noticias": {
+        "Grêmio RS": "Fonte: GE https://ge.globo.com/futebol/times/gremio/",
+        "Palmeiras": "Fonte: GE https://ge.globo.com/futebol/times/palmeiras/"
+      }
+    },
+    {
+      "campeonato": "BRASILEIRÃO SÉRIE A - 2025",
+      "rodada": 36,
+      "hora": "21:30",
+      "estadio": "Arena MRV",
+      "cidade": "Belo Horizonte",
+      "times": [
+        {"nome": "Atlético MG", "posicao": 11},
+        {"nome": "Flamengo", "posicao": 1}
+      ],
+      "noticias": {
+        "Atlético MG": "Fonte: GE https://ge.globo.com/futebol/times/atletico-mg/",
+        "Flamengo": "Fonte: GE https://ge.globo.com/futebol/times/flamengo/"
+      }
+    }
+  ],
+  "2025-11-26": [
+    {
+      "campeonato": "BRASILEIRÃO SÉRIE A - 2025",
+      "rodada": 36,
+      "hora": "19:00",
+      "estadio": "Nabi Abi Chedid",
+      "cidade": "Bragança Paulista",
+      "times": [
+        {"nome": "RB Bragantino", "posicao": 9},
+        {"nome": "Fortaleza", "posicao": 18}
+      ],
+      "noticias": {
+        "RB Bragantino": "Fonte: GE https://ge.globo.com/futebol/times/bragantino/",
+        "Fortaleza": "Fonte: GE https://ge.globo.com/futebol/times/fortaleza/"
+      }
+    }
+  ],
+  "2025-11-27": [
+    {
+      "campeonato": "BRASILEIRÃO SÉRIE A - 2025",
+      "rodada": 36,
+      "hora": "20:30",
+      "estadio": "Maracanã",
+      "cidade": "Rio de Janeiro",
+      "times": [
+        {"nome": "Fluminense", "posicao": 7},
+        {"nome": "São Paulo", "posicao": 8}
+      ],
+      "noticias": {
+        "Fluminense": "Fonte: GE https://ge.globo.com/futebol/times/fluminense/",
+        "São Paulo": "Fonte: GE https://ge.globo.com/futebol/times/sao-paulo/"
+      }
+    }
+  ],
+  "2025-11-28": [
+    {
+      "campeonato": "BRASILEIRÃO SÉRIE A - 2025",
+      "rodada": 36,
+      "hora": "19:00",
+      "estadio": "Alfredo Jaconi",
+      "cidade": "Caxias do Sul",
+      "times": [
+        {"nome": "Juventude", "posicao": 19},
+        {"nome": "Bahia", "posicao": 6}
+      ],
+      "noticias": {
+        "Juventude": "Fonte: GE https://ge.globo.com/futebol/times/juventude/",
+        "Bahia": "Fonte: GE https://ge.globo.com/futebol/times/bahia/"
+      }
+    },
+    {
+      "campeonato": "BRASILEIRÃO SÉRIE A - 2025",
+      "rodada": 36,
+      "hora": "19:30",
+      "estadio": "São Januário",
+      "cidade": "Rio de Janeiro",
+      "times": [
+        {"nome": "Vasco da Gama", "posicao": 13},
+        {"nome": "Internacional RS", "posicao": 15}
+      ],
+      "noticias": {
+        "Vasco da Gama": "Fonte: GE https://ge.globo.com/futebol/times/vasco/",
+        "Internacional RS": "Fonte: GE https://ge.globo.com/futebol/times/internacional/"
+      }
+    },
+    {
+      "campeonato": "BRASILEIRÃO SÉRIE A - 2025",
+      "rodada": 36,
+      "hora": "21:30",
+      "estadio": "Vila Belmiro",
+      "cidade": "Santos",
+      "times": [
+        {"nome": "Santos", "posicao": 17},
+        {"nome": "Sport Recife", "posicao": 20}
+      ],
+      "noticias": {
+        "Santos": "Fonte: GE https://ge.globo.com/futebol/times/santos/",
+        "Sport Recife": "Fonte: GE https://ge.globo.com/futebol/times/sport/"
+      }
+    }
+  ],
+  "2025-11-29": [
+    {
+      "campeonato": "BRASILEIRÃO SÉRIE A - 2025",
+      "rodada": 36,
+      "hora": "16:00",
+      "estadio": "Barradão",
+      "cidade": "Salvador",
+      "times": [
+        {"nome": "Vitória BA", "posicao": 16},
+        {"nome": "Mirassol", "posicao": 4}
+      ],
+      "noticias": {
+        "Vitória BA": "Fonte: GE https://ge.globo.com/futebol/times/vitoria/",
+        "Mirassol": "Fonte: GE https://ge.globo.com/futebol/times/mirassol/"
+      }
+    },
+    {
+      "campeonato": "BRASILEIRÃO SÉRIE A - 2025",
+      "rodada": 36,
+      "hora": "20:30",
+      "estadio": "Castelão (CE)",
+      "cidade": "Fortaleza",
+      "times": [
+        {"nome": "Ceará", "posicao": 14},
+        {"nome": "Cruzeiro MG", "posicao": 3}
+      ],
+      "noticias": {
+        "Ceará": "Fonte: GE https://ge.globo.com/futebol/times/ceara/",
+        "Cruzeiro MG": "Fonte: GE https://ge.globo.com/futebol/times/cruzeiro/"
+      }
+    }
+  ],
+  "2025-11-30": [
+    {
+      "campeonato": "BRASILEIRÃO SÉRIE A - 2025",
+      "rodada": 36,
+      "hora": "16:00",
+      "estadio": "Neo Química Arena",
+      "cidade": "São Paulo",
+      "times": [
+        {"nome": "Corinthians", "posicao": 10},
+        {"nome": "Botafogo RJ", "posicao": 5}
+      ],
+      "noticias": {
+        "Corinthians": "Fonte: GE https://ge.globo.com/futebol/times/corinthians/",
+        "Botafogo RJ": "Fonte: GE https://ge.globo.com/futebol/times/botafogo/"
+      }
+    }
+  ]
+}
