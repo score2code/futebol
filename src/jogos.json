@@ -1,236 +1,323 @@
 {
-  "2025-11-22": [
+  "2025-11-25": [
     {
       "campeonato": "BRASILEIRÃO SÉRIE A - 2025",
-      "rodada": 35,
-      "hora": "19:30",
+      "rodada": 36,
+      "hora": "21:30",
+      "estadio": "Arena do Grêmio",
+      "cidade": "Porto Alegre",
       "times": [
-        {"nome": "Botafogo RJ", "posicao": 5},
-        {"nome": "Grêmio RS", "posicao": 12}
+        {"nome": "Grêmio RS", "posicao": 12},
+        {"nome": "Palmeiras", "posicao": 2}
       ],
-      "linhas": {"golsPadrao": 2.5, "bttsDisponivel": true},
       "ultimos": {
-        "Botafogo RJ": [
-          {"resultado": "V", "placar": "3x2 Sport Recife", "data": "18/11"},
-          {"resultado": "E", "placar": "0x0 Vitória BA", "data": "09/11"},
-          {"resultado": "V", "placar": "3x0 Vasco da Gama", "data": "05/11"},
-          {"resultado": "E", "placar": "0x0 Mirassol", "data": "01/11"},
-          {"resultado": "E", "placar": "2x2 Santos", "data": "26/10"},
-          {"resultado": "V", "placar": "3x1 Bahia", "data": "22/10"}
-        ],
         "Grêmio RS": [
-          {"resultado": "V", "placar": "2x0 Vasco da Gama", "data": "20/11"},
-          {"resultado": "D", "placar": "0x1 Cruzeiro MG", "data": "05/11"},
-          {"resultado": "V", "placar": "3x1 Juventude", "data": "26/10"},
-          {"resultado": "E", "placar": "1x1 Internacional RS", "data": "22/10"},
-          {"resultado": "D", "placar": "0x1 Palmeiras", "data": "18/10"},
-          {"resultado": "V", "placar": "2x1 Bahia", "data": "13/10"}
-        ]
-      }
-    },
-    {
-      "campeonato": "BRASILEIRÃO SÉRIE A - 2025",
-      "rodada": 35,
-      "hora": "21:30",
-      "times": [
-        {"nome": "Flamengo", "posicao": 1},
-        {"nome": "RB Bragantino", "posicao": 8}
-      ],
-      "linhas": {"golsPadrao": 2.5, "bttsDisponivel": true},
-      "ultimos": {
-        "Flamengo": [
-          {"resultado": "V", "placar": "5x1 Sport Recife", "data": "15/11"},
-          {"resultado": "V", "placar": "3x2 Santos", "data": "09/11"},
-          {"resultado": "E", "placar": "2x2 São Paulo", "data": "05/11"},
-          {"resultado": "V", "placar": "3x0 Sport Recife", "data": "01/11"},
-          {"resultado": "D", "placar": "0x1 Fortaleza", "data": "25/10"}
+          {"resultado": "D", "placar": "2 x 3 Botafogo RJ", "data": "2025-11-22", "local": "fora", "vermelhos_time": 0, "vermelhos_adversario": 0, "penaltis_time": 0, "penaltis_adversario": 0, "pen_time_conv": 0, "pen_adv_conv": 0},
+          {"resultado": "V", "placar": "2 x 0 Vasco da Gama", "data": "2025-11-19", "local": "casa", "vermelhos_time": 0, "vermelhos_adversario": 0, "penaltis_time": 0, "penaltis_adversario": 0, "pen_time_conv": 0, "pen_adv_conv": 0},
+          {"resultado": "E", "placar": "2 x 2 Fortaleza", "data": "2025-11-09", "local": "fora", "vermelhos_time": 0, "vermelhos_adversario": 1, "penaltis_time": 0, "penaltis_adversario": 0, "pen_time_conv": 0, "pen_adv_conv": 0},
+          {"resultado": "D", "placar": "0 x 1 Cruzeiro MG", "data": "2025-11-05", "local": "casa", "vermelhos_time": 0, "vermelhos_adversario": 0, "penaltis_time": 0, "penaltis_adversario": 0, "pen_time_conv": 0, "pen_adv_conv": 0},
+          {"resultado": "D", "placar": "0 x 2 Corinthians", "data": "2025-11-02", "local": "fora", "vermelhos_time": 0, "vermelhos_adversario": 0, "penaltis_time": 0, "penaltis_adversario": 1, "pen_adv_conv": 1}
         ],
-        "RB Bragantino": []
-      }
-    },
-    {
-      "campeonato": "BRASILEIRÃO SÉRIE A - 2025",
-      "rodada": 35,
-      "hora": "21:30",
-      "times": [
-        {"nome": "Palmeiras", "posicao": 2},
-        {"nome": "Fluminense", "posicao": 6}
-      ],
-      "linhas": {"golsPadrao": 2.5, "bttsDisponivel": true},
-      "ultimos": {
         "Palmeiras": [
-          {"resultado": "D", "placar": "0x1 Santos", "data": "15/11"},
-          {"resultado": "D", "placar": "1x2 Mirassol", "data": "09/11"},
-          {"resultado": "V", "placar": "2x0 Santos", "data": "06/11"},
-          {"resultado": "V", "placar": "2x0 Juventude", "data": "02/11"},
-          {"resultado": "E", "placar": "0x0 Cruzeiro MG", "data": "26/10"}
-        ],
-        "Fluminense": [
-          {"resultado": "E", "placar": "0x0 Cruzeiro MG", "data": "09/11"},
-          {"resultado": "V", "placar": "1x0 Mirassol", "data": "06/11"},
-          {"resultado": "D", "placar": "0x2 Ceará", "data": "02/11"},
-          {"resultado": "V", "placar": "1x0 Ceará", "data": "29/10"},
-          {"resultado": "V", "placar": "1x0 Internacional RS", "data": "25/10"}
+          {"resultado": "E", "placar": "0 x 0 Fluminense", "data": "2025-11-22", "local": "casa", "vermelhos_time": 0, "vermelhos_adversario": 0, "penaltis_time": 0, "penaltis_adversario": 0},
+          {"resultado": "E", "placar": "0 x 0 Vitória BA", "data": "2025-11-19", "local": "casa", "vermelhos_time": 1, "vermelhos_adversario": 0, "penaltis_time": 0, "penaltis_adversario": 0},
+          {"resultado": "D", "placar": "1 x 2 Mirassol", "data": "2025-11-09", "local": "fora", "vermelhos_time": 0, "vermelhos_adversario": 0, "penaltis_time": 0, "penaltis_adversario": 0},
+          {"resultado": "V", "placar": "2 x 0 Santos", "data": "2025-11-06", "local": "casa", "vermelhos_time": 0, "vermelhos_adversario": 0, "penaltis_time": 0, "penaltis_adversario": 0},
+          {"resultado": "V", "placar": "2 x 0 Juventude", "data": "2025-11-02", "local": "fora", "vermelhos_time": 0, "vermelhos_adversario": 0, "penaltis_time": 0, "penaltis_adversario": 0}
         ]
+      },
+      "noticias": {
+        "Grêmio RS": "Fonte: GE https://ge.globo.com/futebol/times/gremio/",
+        "Palmeiras": "Fonte: GE https://ge.globo.com/futebol/times/palmeiras/"
+      }
+    },
+    {
+      "campeonato": "BRASILEIRÃO SÉRIE A - 2025",
+      "rodada": 36,
+      "hora": "21:30",
+      "estadio": "Arena MRV",
+      "cidade": "Belo Horizonte",
+      "times": [
+        {"nome": "Atlético MG", "posicao": 11},
+        {"nome": "Flamengo", "posicao": 1}
+      ],
+      "ultimos": {
+        "Atlético MG": [
+          {"resultado": "E", "placar": "1 x 1 RB Bragantino", "data": "2025-11-23", "local": "fora", "vermelhos_time": 0, "vermelhos_adversario": 0, "penaltis_time": 0, "penaltis_adversario": 0, "pen_time_conv": 0, "pen_adv_conv": 0},
+          {"resultado": "V", "placar": "2 x 1 Juventude", "data": "2025-11-20", "local": "casa", "vermelhos_time": 0, "vermelhos_adversario": 0, "penaltis_time": 0, "penaltis_adversario": 0, "pen_time_conv": 0, "pen_adv_conv": 0},
+          {"resultado": "V", "placar": "1 x 0 Cruzeiro MG", "data": "2025-11-16", "local": "casa", "vermelhos_time": 0, "vermelhos_adversario": 0, "penaltis_time": 0, "penaltis_adversario": 0, "pen_time_conv": 0, "pen_adv_conv": 0},
+          {"resultado": "E", "placar": "0 x 0 São Paulo", "data": "2025-11-12", "local": "fora", "vermelhos_time": 0, "vermelhos_adversario": 0, "penaltis_time": 0, "penaltis_adversario": 0, "pen_time_conv": 0, "pen_adv_conv": 0},
+          {"resultado": "D", "placar": "0 x 1 Fluminense", "data": "2025-11-08", "local": "casa", "vermelhos_time": 0, "vermelhos_adversario": 0, "penaltis_time": 0, "penaltis_adversario": 0, "pen_time_conv": 0, "pen_adv_conv": 0}
+        ],
+        "Flamengo": [
+          {"resultado": "V", "placar": "3 x 0 RB Bragantino", "data": "2025-11-22", "local": "casa", "vermelhos_time": 0, "vermelhos_adversario": 0, "penaltis_time": 0, "penaltis_adversario": 0, "pen_time_conv": 0, "pen_adv_conv": 0},
+          {"resultado": "D", "placar": "1 x 2 Fluminense", "data": "2025-11-19", "local": "fora", "vermelhos_time": 0, "vermelhos_adversario": 0, "penaltis_time": 1, "penaltis_adversario": 0, "pen_time_conv": 1, "pen_adv_conv": 0},
+          {"resultado": "V", "placar": "5 x 1 Sport Recife", "data": "2025-11-15", "local": "fora", "vermelhos_time": 0, "vermelhos_adversario": 0, "penaltis_time": 0, "penaltis_adversario": 0, "pen_time_conv": 0, "pen_adv_conv": 0},
+          {"resultado": "V", "placar": "3 x 2 Santos", "data": "2025-11-09", "local": "casa", "vermelhos_time": 0, "vermelhos_adversario": 0, "penaltis_time": 0, "penaltis_adversario": 0, "pen_time_conv": 0, "pen_adv_conv": 0},
+          {"resultado": "E", "placar": "2 x 2 São Paulo", "data": "2025-11-05", "local": "fora", "vermelhos_time": 1, "vermelhos_adversario": 0, "penaltis_time": 1, "penaltis_adversario": 0, "pen_time_conv": 1, "pen_adv_conv": 0}
+        ]
+      },
+      "noticias": {
+        "Atlético MG": "Fonte: GE https://ge.globo.com/futebol/times/atletico-mg/",
+        "Flamengo": "Fonte: GE https://ge.globo.com/futebol/times/flamengo/"
       }
     }
   ],
-  "2025-11-23": [
+  "2025-11-26": [
     {
       "campeonato": "BRASILEIRÃO SÉRIE A - 2025",
-      "rodada": 35,
-      "hora": "16:00",
+      "rodada": 36,
+      "hora": "19:30",
+      "estadio": "Nabi Abi Chedid",
+      "cidade": "Bragança Paulista",
       "times": [
-        {"nome": "Bahia", "posicao": 7},
-        {"nome": "Vasco da Gama", "posicao": 13}
+        {"nome": "RB Bragantino", "posicao": 9},
+        {"nome": "Fortaleza", "posicao": 18}
       ],
-      "linhas": {"golsPadrao": 2.5, "bttsDisponivel": true},
       "ultimos": {
-        "Bahia": [
-          {"resultado": "D", "placar": "2x3 Fortaleza", "data": "20/11"},
-          {"resultado": "E", "placar": "2x2 Internacional RS", "data": "08/11"},
-          {"resultado": "D", "placar": "0x3 Atlético MG", "data": "05/11"},
-          {"resultado": "V", "placar": "2x1 RB Bragantino", "data": "02/11"},
-          {"resultado": "D", "placar": "0x2 São Paulo", "data": "25/10"}
+        "RB Bragantino": [
+          {"resultado": "D", "placar": "0 x 3 Flamengo", "data": "2025-11-23", "local": "fora", "vermelhos_time": 0, "vermelhos_adversario": 0, "penaltis_time": 0, "penaltis_adversario": 0, "pen_time_conv": 0, "pen_adv_conv": 0},
+          {"resultado": "V", "placar": "1 x 0 Atlético MG", "data": "2025-11-20", "local": "casa", "vermelhos_time": 0, "vermelhos_adversario": 0, "penaltis_time": 0, "penaltis_adversario": 0, "pen_time_conv": 0, "pen_adv_conv": 0},
+          {"resultado": "V", "placar": "2 x 1 Ceará", "data": "2025-11-16", "local": "casa", "vermelhos_time": 0, "vermelhos_adversario": 0, "penaltis_time": 0, "penaltis_adversario": 0, "pen_time_conv": 0, "pen_adv_conv": 0},
+          {"resultado": "V", "placar": "3 x 2 Bahia", "data": "2025-11-12", "local": "fora", "vermelhos_time": 0, "vermelhos_adversario": 0, "penaltis_time": 0, "penaltis_adversario": 0, "pen_time_conv": 0, "pen_adv_conv": 0},
+          {"resultado": "D", "placar": "0 x 1 Botafogo RJ", "data": "2025-11-08", "local": "casa", "vermelhos_time": 0, "vermelhos_adversario": 0, "penaltis_time": 0, "penaltis_adversario": 0, "pen_time_conv": 0, "pen_adv_conv": 0}
         ],
-        "Vasco da Gama": [
-          {"resultado": "D", "placar": "1x3 Juventude", "data": "09/11"},
-          {"resultado": "D", "placar": "0x3 Botafogo RJ", "data": "05/11"},
-          {"resultado": "V", "placar": "3x0 RB Bragantino", "data": "26/10"},
-          {"resultado": "D", "placar": "0x2 Flamengo", "data": "21/10"},
-          {"resultado": "E", "placar": "1x1 Mirassol", "data": "18/10"}
+        "Fortaleza": [
+          {"resultado": "E", "placar": "0 x 0 Ceará", "data": "2025-11-23", "local": "casa", "vermelhos_time": 0, "vermelhos_adversario": 0, "penaltis_time": 0, "penaltis_adversario": 0, "pen_time_conv": 0, "pen_adv_conv": 0},
+          {"resultado": "E", "placar": "1 x 1 Bahia", "data": "2025-11-20", "local": "fora", "vermelhos_time": 0, "vermelhos_adversario": 0, "penaltis_time": 0, "penaltis_adversario": 0, "pen_time_conv": 0, "pen_adv_conv": 0},
+          {"resultado": "E", "placar": "2 x 2 Grêmio RS", "data": "2025-11-16", "local": "casa", "vermelhos_time": 1, "vermelhos_adversario": 0, "penaltis_time": 0, "penaltis_adversario": 0, "pen_time_conv": 0, "pen_adv_conv": 0},
+          {"resultado": "E", "placar": "0 x 0 Santos", "data": "2025-11-12", "local": "fora", "vermelhos_time": 0, "vermelhos_adversario": 0, "penaltis_time": 0, "penaltis_adversario": 0, "pen_time_conv": 0, "pen_adv_conv": 0},
+          {"resultado": "V", "placar": "1 x 0 Sport Recife", "data": "2025-11-08", "local": "casa", "vermelhos_time": 0, "vermelhos_adversario": 0, "penaltis_time": 0, "penaltis_adversario": 0, "pen_time_conv": 0, "pen_adv_conv": 0}
         ]
+      },
+      "noticias": {
+        "RB Bragantino": "Fonte: GE https://ge.globo.com/futebol/times/bragantino/",
+        "Fortaleza": "Fonte: GE https://ge.globo.com/futebol/times/fortaleza/"
       }
-    },
+    }
+  ],
+  "2025-11-27": [
     {
       "campeonato": "BRASILEIRÃO SÉRIE A - 2025",
-      "rodada": 35,
-      "hora": "16:00",
-      "times": [
-        {"nome": "São Paulo", "posicao": 9},
-        {"nome": "Juventude", "posicao": 19}
-      ],
-      "linhas": {"golsPadrao": 2.5, "bttsDisponivel": true},
-      "ultimos": {
-        "São Paulo": [
-          {"resultado": "E", "placar": "2x2 Flamengo", "data": "05/11"},
-          {"resultado": "V", "placar": "2x0 Vasco da Gama", "data": "02/11"},
-          {"resultado": "D", "placar": "0x3 Mirassol", "data": "19/10"},
-          {"resultado": "V", "placar": "2x0 Santos", "data": "17/10"}
-        ],
-        "Juventude": [
-          {"resultado": "E", "placar": "3x3 Cruzeiro MG", "data": "20/11"},
-          {"resultado": "V", "placar": "3x1 Vasco da Gama", "data": "09/11"},
-          {"resultado": "V", "placar": "2x0 Sport Recife", "data": "05/11"},
-          {"resultado": "D", "placar": "0x2 Palmeiras", "data": "02/11"},
-          {"resultado": "D", "placar": "1x3 Grêmio RS", "data": "26/10"}
-        ]
-      }
-    },
-    {
-      "campeonato": "BRASILEIRÃO SÉRIE A - 2025",
-      "rodada": 35,
-      "hora": "18:30",
-      "times": [
-        {"nome": "Sport Recife", "posicao": 20},
-        {"nome": "Vitória BA", "posicao": 17}
-      ],
-      "linhas": {"golsPadrao": 2.5, "bttsDisponivel": true},
-      "ultimos": {
-        "Sport Recife": [
-          {"resultado": "D", "placar": "1x3 Corinthians", "data": "20/11"},
-          {"resultado": "D", "placar": "1x5 Flamengo", "data": "15/11"},
-          {"resultado": "D", "placar": "0x2 Juventude", "data": "05/11"},
-          {"resultado": "D", "placar": "0x3 Flamengo", "data": "01/11"},
-          {"resultado": "D", "placar": "1x2 Mirassol", "data": "25/10"}
-        ],
-        "Vitória BA": [
-          {"resultado": "V", "placar": "1x0 Internacional RS", "data": "05/11"},
-          {"resultado": "V", "placar": "1x0 Corinthians", "data": "25/10"},
-          {"resultado": "D", "placar": "0x2 Botafogo RJ", "data": "19/10"},
-          {"resultado": "V", "placar": "1x0 Mirassol", "data": "14/10"},
-          {"resultado": "D", "placar": "1x3 Bahia", "data": "09/10"}
-        ]
-      }
-    },
-    {
-      "campeonato": "BRASILEIRÃO SÉRIE A - 2025",
-      "rodada": 35,
+      "rodada": 36,
       "hora": "20:30",
+      "estadio": "Maracanã",
+      "cidade": "Rio de Janeiro",
       "times": [
-        {"nome": "Cruzeiro MG", "posicao": 3},
-        {"nome": "Corinthians", "posicao": 10}
+        {"nome": "Fluminense", "posicao": 7},
+        {"nome": "São Paulo", "posicao": 8}
       ],
-      "linhas": {"golsPadrao": 2.5, "bttsDisponivel": true},
       "ultimos": {
-        "Cruzeiro MG": [
-          {"resultado": "E", "placar": "3x3 Juventude", "data": "20/11"},
-          {"resultado": "E", "placar": "0x0 Fluminense", "data": "09/11"},
-          {"resultado": "V", "placar": "1x0 Grêmio RS", "data": "05/11"},
-          {"resultado": "V", "placar": "3x1 Vitória BA", "data": "01/11"},
-          {"resultado": "E", "placar": "0x0 Palmeiras", "data": "26/10"}
+        "Fluminense": [
+          {"resultado": "E", "placar": "0 x 0 Palmeiras", "data": "2025-11-22", "local": "fora", "vermelhos_time": 0, "vermelhos_adversario": 0, "penaltis_time": 0, "penaltis_adversario": 0},
+          {"resultado": "V", "placar": "2 x 1 Flamengo", "data": "2025-11-19", "local": "casa", "vermelhos_time": 0, "vermelhos_adversario": 0, "penaltis_time": 0, "penaltis_adversario": 1, "pen_adv_conv": 1, "pen_adv_nao": 0},
+          {"resultado": "E", "placar": "0 x 0 Cruzeiro MG", "data": "2025-11-09", "local": "fora", "vermelhos_time": 0, "vermelhos_adversario": 0, "penaltis_time": 0, "penaltis_adversario": 0},
+          {"resultado": "V", "placar": "1 x 0 Mirassol", "data": "2025-11-06", "local": "casa", "vermelhos_time": 0, "vermelhos_adversario": 0, "penaltis_time": 0, "penaltis_adversario": 0},
+          {"resultado": "D", "placar": "0 x 2 Ceará", "data": "2025-11-02", "local": "fora", "vermelhos_time": 1, "vermelhos_adversario": 0, "penaltis_time": 0, "penaltis_adversario": 0}
         ],
-        "Corinthians": [
-          {"resultado": "V", "placar": "3x1 Sport Recife", "data": "20/11"},
-          {"resultado": "D", "placar": "1x2 RB Bragantino", "data": "05/11"},
-          {"resultado": "D", "placar": "0x1 Vitória BA", "data": "25/10"},
-          {"resultado": "E", "placar": "1x1 Palmeiras", "data": "21/10"},
-          {"resultado": "V", "placar": "2x1 Fluminense", "data": "16/10"}
+        "São Paulo": [
+          {"resultado": "V", "placar": "2 x 1 Juventude", "data": "2025-11-23", "local": "casa", "vermelhos_time": 0, "vermelhos_adversario": 1, "penaltis_time": 0, "penaltis_adversario": 0},
+          {"resultado": "D", "placar": "1 x 3 Corinthians", "data": "2025-11-20", "local": "fora", "vermelhos_time": 0, "vermelhos_adversario": 0, "penaltis_time": 0, "penaltis_adversario": 0},
+          {"resultado": "E", "placar": "2 x 2 Flamengo", "data": "2025-11-05", "local": "casa", "vermelhos_time": 0, "vermelhos_adversario": 1, "penaltis_time": 0, "penaltis_adversario": 1, "pen_adv_conv": 1, "pen_adv_nao": 0},
+          {"resultado": "V", "placar": "2 x 0 Vasco da Gama", "data": "2025-11-02", "local": "fora", "vermelhos_time": 0, "vermelhos_adversario": 0, "penaltis_time": 1, "penaltis_adversario": 0, "pen_time_conv": 1, "pen_time_nao": 0},
+          {"resultado": "D", "placar": "0 x 2 Cruzeiro MG", "data": "2025-11-16", "local": "casa", "vermelhos_time": 0, "vermelhos_adversario": 0, "penaltis_time": 0, "penaltis_adversario": 0}
         ]
+      },
+      "noticias": {
+        "Fluminense": "Fonte: GE https://ge.globo.com/futebol/times/fluminense/",
+        "São Paulo": "Fonte: GE https://ge.globo.com/futebol/times/sao-paulo/"
       }
     }
   ],
-  "2025-11-24": [
+  "2025-11-28": [
     {
       "campeonato": "BRASILEIRÃO SÉRIE A - 2025",
-      "rodada": 35,
+      "rodada": 36,
       "hora": "19:00",
+      "estadio": "Alfredo Jaconi",
+      "cidade": "Caxias do Sul",
       "times": [
-        {"nome": "Mirassol", "posicao": 4},
-        {"nome": "Ceará", "posicao": 14}
+        {"nome": "Juventude", "posicao": 19},
+        {"nome": "Bahia", "posicao": 6}
       ],
-      "linhas": {"golsPadrao": 2.5, "bttsDisponivel": true},
       "ultimos": {
-        "Mirassol": [
-          {"resultado": "V", "placar": "2x1 Palmeiras", "data": "09/11"},
-          {"resultado": "D", "placar": "0x1 Fluminense", "data": "06/11"},
-          {"resultado": "E", "placar": "0x0 Botafogo RJ", "data": "01/11"},
-          {"resultado": "V", "placar": "2x1 Sport Recife", "data": "25/10"},
-          {"resultado": "V", "placar": "3x0 São Paulo", "data": "19/10"}
+        "Juventude": [
+          {"resultado": "D", "placar": "1 x 2 São Paulo", "data": "2025-11-23", "local": "fora", "vermelhos_time": 1, "vermelhos_adversario": 0, "penaltis_time": 0, "penaltis_adversario": 0},
+          {"resultado": "E", "placar": "3 x 3 Cruzeiro MG", "data": "2025-11-20", "local": "casa", "vermelhos_time": 0, "vermelhos_adversario": 0, "penaltis_time": 0, "penaltis_adversario": 0},
+          {"resultado": "V", "placar": "3 x 1 Vasco da Gama", "data": "2025-11-08", "local": "fora", "vermelhos_time": 0, "vermelhos_adversario": 1, "penaltis_time": 0, "penaltis_adversario": 0},
+          {"resultado": "V", "placar": "2 x 0 Sport Recife", "data": "2025-11-05", "local": "fora", "vermelhos_time": 0, "vermelhos_adversario": 0, "penaltis_time": 0, "penaltis_adversario": 0},
+          {"resultado": "D", "placar": "0 x 2 Palmeiras", "data": "2025-11-02", "local": "casa", "vermelhos_time": 0, "vermelhos_adversario": 0, "penaltis_time": 0, "penaltis_adversario": 0}
         ],
-        "Ceará": [
-          {"resultado": "D", "placar": "1x2 Internacional RS", "data": "20/11"},
-          {"resultado": "D", "placar": "0x1 Fluminense", "data": "29/10"},
-          {"resultado": "E", "placar": "1x1 Botafogo RJ", "data": "24/10"},
-          {"resultado": "D", "placar": "0x2 Flamengo", "data": "19/10"},
-          {"resultado": "V", "placar": "2x1 Fortaleza", "data": "14/10"}
+        "Bahia": [
+          {"resultado": "V", "placar": "1 x 0 Vasco da Gama", "data": "2025-11-23", "local": "casa", "vermelhos_time": 1, "vermelhos_adversario": 1, "penaltis_time": 0, "penaltis_adversario": 0},
+          {"resultado": "D", "placar": "0 x 3 Atlético MG", "data": "2025-11-05", "local": "fora"},
+          {"resultado": "E", "placar": "1 x 1 Internacional RS", "data": "2025-11-16", "local": "casa"},
+          {"resultado": "D", "placar": "2 x 3 RB Bragantino", "data": "2025-11-12", "local": "fora"},
+          {"resultado": "V", "placar": "2 x 0 Criciúma", "data": "2025-11-08", "local": "casa"}
         ]
+      },
+      "noticias": {
+        "Juventude": "Fonte: GE https://ge.globo.com/futebol/times/juventude/",
+        "Bahia": "Fonte: GE https://ge.globo.com/futebol/times/bahia/"
       }
     },
     {
       "campeonato": "BRASILEIRÃO SÉRIE A - 2025",
-      "rodada": 35,
-      "hora": "21:00",
+      "rodada": 36,
+      "hora": "19:30",
+      "estadio": "São Januário",
+      "cidade": "Rio de Janeiro",
       "times": [
-        {"nome": "Internacional RS", "posicao": 15},
-        {"nome": "Santos", "posicao": 16}
+        {"nome": "Vasco da Gama", "posicao": 13},
+        {"nome": "Internacional RS", "posicao": 15}
       ],
-      "linhas": {"golsPadrao": 2.5, "bttsDisponivel": true},
       "ultimos": {
-        "Internacional RS": [
-          {"resultado": "V", "placar": "2x1 Ceará", "data": "20/11"},
-          {"resultado": "E", "placar": "2x2 Bahia", "data": "08/11"},
-          {"resultado": "D", "placar": "0x1 Vitória BA", "data": "05/11"},
-          {"resultado": "E", "placar": "0x0 Atlético MG", "data": "02/11"},
-          {"resultado": "E", "placar": "1x1 Grêmio RS", "data": "25/10"}
+        "Vasco da Gama": [
+          {"resultado": "D", "placar": "0 x 1 Grêmio RS", "data": "2025-11-23", "local": "fora", "vermelhos_time": 0, "vermelhos_adversario": 0, "penaltis_time": 0, "penaltis_adversario": 0, "pen_time_conv": 0, "pen_adv_conv": 0},
+          {"resultado": "D", "placar": "1 x 2 Vitória BA", "data": "2025-11-20", "local": "casa", "vermelhos_time": 0, "vermelhos_adversario": 0, "penaltis_time": 0, "penaltis_adversario": 0, "pen_time_conv": 0, "pen_adv_conv": 0},
+          {"resultado": "D", "placar": "0 x 2 Flamengo", "data": "2025-11-16", "local": "fora", "vermelhos_time": 0, "vermelhos_adversario": 0, "penaltis_time": 0, "penaltis_adversario": 0, "pen_time_conv": 0, "pen_adv_conv": 0},
+          {"resultado": "D", "placar": "2 x 3 Athletico-PR", "data": "2025-11-12", "local": "casa", "vermelhos_time": 0, "vermelhos_adversario": 0, "penaltis_time": 0, "penaltis_adversario": 0, "pen_time_conv": 0, "pen_adv_conv": 0},
+          {"resultado": "D", "placar": "0 x 1 Botafogo RJ", "data": "2025-11-08", "local": "fora", "vermelhos_time": 0, "vermelhos_adversario": 0, "penaltis_time": 0, "penaltis_adversario": 0, "pen_time_conv": 0, "pen_adv_conv": 0}
         ],
-        "Santos": [
-          {"resultado": "V", "placar": "1x0 Palmeiras", "data": "15/11"},
-          {"resultado": "D", "placar": "2x3 Flamengo", "data": "09/11"},
-          {"resultado": "D", "placar": "0x2 Palmeiras", "data": "06/11"},
-          {"resultado": "E", "placar": "2x2 Botafogo RJ", "data": "26/10"},
-          {"resultado": "D", "placar": "0x1 Vitória BA", "data": "20/10"}
+        "Internacional RS": [
+          {"resultado": "E", "placar": "1 x 1 Santos", "data": "2025-11-24", "local": "casa", "vermelhos_time": 0, "vermelhos_adversario": 0, "penaltis_time": 0, "penaltis_adversario": 0, "pen_time_conv": 0, "pen_adv_conv": 0},
+          {"resultado": "D", "placar": "0 x 1 Fluminense", "data": "2025-11-20", "local": "fora", "vermelhos_time": 0, "vermelhos_adversario": 0, "penaltis_time": 0, "penaltis_adversario": 0, "pen_time_conv": 0, "pen_adv_conv": 0},
+          {"resultado": "E", "placar": "0 x 0 Santos", "data": "2025-11-16", "local": "casa", "vermelhos_time": 0, "vermelhos_adversario": 0, "penaltis_time": 0, "penaltis_adversario": 0, "pen_time_conv": 0, "pen_adv_conv": 0},
+          {"resultado": "V", "placar": "2 x 1 Mirassol", "data": "2025-11-12", "local": "fora", "vermelhos_time": 0, "vermelhos_adversario": 0, "penaltis_time": 0, "penaltis_adversario": 0, "pen_time_conv": 0, "pen_adv_conv": 0},
+          {"resultado": "E", "placar": "2 x 2 Cruzeiro MG", "data": "2025-11-08", "local": "casa", "vermelhos_time": 0, "vermelhos_adversario": 0, "penaltis_time": 0, "penaltis_adversario": 0, "pen_time_conv": 0, "pen_adv_conv": 0}
         ]
+      },
+      "noticias": {
+        "Vasco da Gama": "Fonte: GE https://ge.globo.com/futebol/times/vasco/",
+        "Internacional RS": "Fonte: GE https://ge.globo.com/futebol/times/internacional/"
+      }
+    },
+    {
+      "campeonato": "BRASILEIRÃO SÉRIE A - 2025",
+      "rodada": 36,
+      "hora": "21:30",
+      "estadio": "Vila Belmiro",
+      "cidade": "Santos",
+      "times": [
+        {"nome": "Santos", "posicao": 17},
+        {"nome": "Sport Recife", "posicao": 20}
+      ],
+      "ultimos": {
+        "Santos": [
+          {"resultado": "E", "placar": "1 x 1 Internacional RS", "data": "2025-11-24", "local": "fora", "vermelhos_time": 0, "vermelhos_adversario": 0, "penaltis_time": 0, "penaltis_adversario": 0, "pen_time_conv": 0, "pen_adv_conv": 0},
+          {"resultado": "D", "placar": "1 x 2 Mirassol", "data": "2025-11-20", "local": "fora", "vermelhos_time": 0, "vermelhos_adversario": 0, "penaltis_time": 0, "penaltis_adversario": 0, "pen_time_conv": 0, "pen_adv_conv": 0},
+          {"resultado": "V", "placar": "2 x 0 Criciúma", "data": "2025-11-16", "local": "casa", "vermelhos_time": 0, "vermelhos_adversario": 0, "penaltis_time": 0, "penaltis_adversario": 0, "pen_time_conv": 0, "pen_adv_conv": 0},
+          {"resultado": "E", "placar": "1 x 1 Fluminense", "data": "2025-11-12", "local": "fora", "vermelhos_time": 0, "vermelhos_adversario": 0, "penaltis_time": 0, "penaltis_adversario": 0, "pen_time_conv": 0, "pen_adv_conv": 0},
+          {"resultado": "E", "placar": "0 x 0 Internacional RS", "data": "2025-11-08", "local": "casa", "vermelhos_time": 0, "vermelhos_adversario": 0, "penaltis_time": 0, "penaltis_adversario": 0, "pen_time_conv": 0, "pen_adv_conv": 0}
+        ],
+        "Sport Recife": [
+          {"resultado": "D", "placar": "0 x 1 Vitória BA", "data": "2025-11-23", "local": "fora", "vermelhos_time": 0, "vermelhos_adversario": 0, "penaltis_time": 0, "penaltis_adversario": 0, "pen_time_conv": 0, "pen_adv_conv": 0},
+          {"resultado": "D", "placar": "1 x 3 Fortaleza", "data": "2025-11-20", "local": "casa", "vermelhos_time": 0, "vermelhos_adversario": 0, "penaltis_time": 0, "penaltis_adversario": 0, "pen_time_conv": 0, "pen_adv_conv": 0},
+          {"resultado": "D", "placar": "0 x 2 Ceará", "data": "2025-11-16", "local": "fora", "vermelhos_time": 0, "vermelhos_adversario": 0, "penaltis_time": 0, "penaltis_adversario": 0, "pen_time_conv": 0, "pen_adv_conv": 0},
+          {"resultado": "D", "placar": "0 x 1 Mirassol", "data": "2025-11-12", "local": "casa", "vermelhos_time": 0, "vermelhos_adversario": 0, "penaltis_time": 0, "penaltis_adversario": 0, "pen_time_conv": 0, "pen_adv_conv": 0},
+          {"resultado": "D", "placar": "2 x 3 Vasco da Gama", "data": "2025-11-08", "local": "fora", "vermelhos_time": 0, "vermelhos_adversario": 0, "penaltis_time": 0, "penaltis_adversario": 0, "pen_time_conv": 0, "pen_adv_conv": 0}
+        ]
+      },
+      "noticias": {
+        "Santos": "Fonte: GE https://ge.globo.com/futebol/times/santos/",
+        "Sport Recife": "Fonte: GE https://ge.globo.com/futebol/times/sport/"
+      }
+    }
+  ],
+  "2025-11-29": [
+    {
+      "campeonato": "BRASILEIRÃO SÉRIE A - 2025",
+      "rodada": 36,
+      "hora": "16:00",
+      "estadio": "Barradão",
+      "cidade": "Salvador",
+      "times": [
+        {"nome": "Vitória BA", "posicao": 16},
+        {"nome": "Mirassol", "posicao": 4}
+      ],
+      "ultimos": {
+        "Vitória BA": [
+          {"resultado": "V", "placar": "3 x 1 Sport Recife", "data": "2025-11-23", "local": "fora", "vermelhos_time": 0, "vermelhos_adversario": 0, "penaltis_time": 0, "penaltis_adversario": 0},
+          {"resultado": "V", "placar": "2 x 1 Vasco da Gama", "data": "2025-11-20", "local": "fora", "vermelhos_time": 0, "vermelhos_adversario": 0, "penaltis_time": 0, "penaltis_adversario": 0},
+          {"resultado": "E", "placar": "0 x 0 Botafogo RJ", "data": "2025-11-09", "local": "casa", "vermelhos_time": 0, "vermelhos_adversario": 0, "penaltis_time": 0, "penaltis_adversario": 0},
+          {"resultado": "E", "placar": "0 x 0 Internacional RS", "data": "2025-11-12", "local": "fora", "vermelhos_time": 0, "vermelhos_adversario": 0, "penaltis_time": 0, "penaltis_adversario": 0},
+          {"resultado": "V", "placar": "1 x 0 Juventude", "data": "2025-11-08", "local": "casa", "vermelhos_time": 0, "vermelhos_adversario": 0, "penaltis_time": 0, "penaltis_adversario": 0}
+        ],
+        "Mirassol": [
+          {"resultado": "V", "placar": "3 x 0 Ceará", "data": "2025-11-24", "local": "casa", "vermelhos_time": 0, "vermelhos_adversario": 0, "penaltis_time": 0, "penaltis_adversario": 0, "pen_time_conv": 0, "pen_adv_conv": 0},
+          {"resultado": "D", "placar": "0 x 1 São Paulo", "data": "2025-11-20", "local": "casa", "vermelhos_time": 0, "vermelhos_adversario": 0, "penaltis_time": 0, "penaltis_adversario": 0, "pen_time_conv": 0, "pen_adv_conv": 0},
+          {"resultado": "V", "placar": "2 x 0 Criciúma", "data": "2025-11-16", "local": "fora", "vermelhos_time": 0, "vermelhos_adversario": 0, "penaltis_time": 0, "penaltis_adversario": 0, "pen_time_conv": 0, "pen_adv_conv": 0},
+          {"resultado": "E", "placar": "2 x 2 Corinthians", "data": "2025-11-12", "local": "casa", "vermelhos_time": 0, "vermelhos_adversario": 0, "penaltis_time": 0, "penaltis_adversario": 0, "pen_time_conv": 0, "pen_adv_conv": 0},
+          {"resultado": "V", "placar": "3 x 1 Sport Recife", "data": "2025-11-08", "local": "fora", "vermelhos_time": 0, "vermelhos_adversario": 0, "penaltis_time": 0, "penaltis_adversario": 0, "pen_time_conv": 0, "pen_adv_conv": 0}
+        ]
+      },
+      "noticias": {
+        "Vitória BA": "Fonte: GE https://ge.globo.com/futebol/times/vitoria/",
+        "Mirassol": "Fonte: GE https://ge.globo.com/futebol/times/mirassol/"
+      }
+    },
+    {
+      "campeonato": "BRASILEIRÃO SÉRIE A - 2025",
+      "rodada": 36,
+      "hora": "20:30",
+      "estadio": "Castelão (CE)",
+      "cidade": "Fortaleza",
+      "times": [
+        {"nome": "Ceará", "posicao": 14},
+        {"nome": "Cruzeiro MG", "posicao": 3}
+      ],
+      "ultimos": {
+        "Ceará": [
+          {"resultado": "D", "placar": "0 x 3 Mirassol", "data": "2025-11-24", "local": "fora", "vermelhos_time": 0, "vermelhos_adversario": 0, "penaltis_time": 0, "penaltis_adversario": 0, "pen_time_conv": 0, "pen_adv_conv": 0},
+          {"resultado": "E", "placar": "0 x 0 Fortaleza", "data": "2025-11-20", "local": "fora", "vermelhos_time": 0, "vermelhos_adversario": 0, "penaltis_time": 0, "penaltis_adversario": 0, "pen_time_conv": 0, "pen_adv_conv": 0},
+          {"resultado": "V", "placar": "2 x 1 Mirassol", "data": "2025-11-16", "local": "casa", "vermelhos_time": 0, "vermelhos_adversario": 0, "penaltis_time": 0, "penaltis_adversario": 0, "pen_time_conv": 0, "pen_adv_conv": 0},
+          {"resultado": "D", "placar": "0 x 1 Athletico-PR", "data": "2025-11-12", "local": "fora", "vermelhos_time": 0, "vermelhos_adversario": 0, "penaltis_time": 0, "penaltis_adversario": 0, "pen_time_conv": 0, "pen_adv_conv": 0},
+          {"resultado": "D", "placar": "1 x 2 Palmeiras", "data": "2025-11-08", "local": "casa", "vermelhos_time": 0, "vermelhos_adversario": 0, "penaltis_time": 0, "penaltis_adversario": 0, "pen_time_conv": 0, "pen_adv_conv": 0}
+        ],
+        "Cruzeiro MG": [
+          {"resultado": "V", "placar": "2 x 0 Grêmio RS", "data": "2025-11-23", "local": "fora", "vermelhos_time": 0, "vermelhos_adversario": 0, "penaltis_time": 0, "penaltis_adversario": 0, "pen_time_conv": 0, "pen_adv_conv": 0},
+          {"resultado": "V", "placar": "1 x 0 Santos", "data": "2025-11-20", "local": "casa", "vermelhos_time": 0, "vermelhos_adversario": 0, "penaltis_time": 0, "penaltis_adversario": 0, "pen_time_conv": 0, "pen_adv_conv": 0},
+          {"resultado": "E", "placar": "1 x 1 Palmeiras", "data": "2025-11-16", "local": "fora", "vermelhos_time": 0, "vermelhos_adversario": 0, "penaltis_time": 0, "penaltis_adversario": 0, "pen_time_conv": 0, "pen_adv_conv": 0},
+          {"resultado": "E", "placar": "2 x 2 Internacional RS", "data": "2025-11-12", "local": "casa", "vermelhos_time": 0, "vermelhos_adversario": 0, "penaltis_time": 0, "penaltis_adversario": 0, "pen_time_conv": 0, "pen_adv_conv": 0},
+          {"resultado": "V", "placar": "3 x 0 Criciúma", "data": "2025-11-08", "local": "fora", "vermelhos_time": 0, "vermelhos_adversario": 0, "penaltis_time": 0, "penaltis_adversario": 0, "pen_time_conv": 0, "pen_adv_conv": 0}
+        ]
+      },
+      "noticias": {
+        "Ceará": "Fonte: GE https://ge.globo.com/futebol/times/ceara/",
+        "Cruzeiro MG": "Fonte: GE https://ge.globo.com/futebol/times/cruzeiro/"
+      }
+    }
+  ],
+  "2025-11-30": [
+    {
+      "campeonato": "BRASILEIRÃO SÉRIE A - 2025",
+      "rodada": 36,
+      "hora": "16:00",
+      "estadio": "Neo Química Arena",
+      "cidade": "São Paulo",
+      "times": [
+        {"nome": "Corinthians", "posicao": 10},
+        {"nome": "Botafogo RJ", "posicao": 5}
+      ],
+      "ultimos": {
+        "Corinthians": [
+          {"resultado": "D", "placar": "0 x 3 Cruzeiro MG", "data": "2025-11-23", "local": "fora", "vermelhos_time": 0, "vermelhos_adversario": 0, "penaltis_time": 0, "penaltis_adversario": 0, "pen_time_conv": 0, "pen_adv_conv": 0},
+          {"resultado": "E", "placar": "1 x 1 São Paulo", "data": "2025-11-20", "local": "casa", "vermelhos_time": 0, "vermelhos_adversario": 0, "penaltis_time": 0, "penaltis_adversario": 0, "pen_time_conv": 0, "pen_adv_conv": 0},
+          {"resultado": "D", "placar": "0 x 1 Ceará", "data": "2025-11-09", "local": "casa", "vermelhos_time": 0, "vermelhos_adversario": 0, "penaltis_time": 0, "penaltis_adversario": 0, "pen_time_conv": 0, "pen_adv_conv": 0},
+          {"resultado": "D", "placar": "1 x 2 RB Bragantino", "data": "2025-11-05", "local": "fora", "vermelhos_time": 0, "vermelhos_adversario": 0, "penaltis_time": 0, "penaltis_adversario": 0, "pen_time_conv": 0, "pen_adv_conv": 0},
+          {"resultado": "V", "placar": "2 x 0 Grêmio RS", "data": "2025-11-02", "local": "casa", "vermelhos_time": 0, "vermelhos_adversario": 0, "penaltis_time": 1, "pen_adv_conv": 1, "penaltis_adversario": 0}
+        ],
+        "Botafogo RJ": [
+          {"resultado": "V", "placar": "3 x 2 Grêmio RS", "data": "2025-11-22", "local": "casa", "vermelhos_time": 0, "vermelhos_adversario": 0, "penaltis_time": 0, "penaltis_adversario": 0, "pen_time_conv": 0, "pen_adv_conv": 0},
+          {"resultado": "V", "placar": "3 x 2 Sport Recife", "data": "2025-11-18", "local": "casa", "vermelhos_time": 0, "vermelhos_adversario": 0, "penaltis_time": 0, "penaltis_adversario": 0, "pen_time_conv": 0, "pen_adv_conv": 0},
+          {"resultado": "E", "placar": "0 x 0 Vitória BA", "data": "2025-11-09", "local": "fora", "vermelhos_time": 0, "vermelhos_adversario": 0, "penaltis_time": 0, "penaltis_adversario": 0, "pen_time_conv": 0, "pen_adv_conv": 0},
+          {"resultado": "V", "placar": "3 x 0 Vasco da Gama", "data": "2025-11-05", "local": "casa", "vermelhos_time": 0, "vermelhos_adversario": 0, "penaltis_time": 0, "penaltis_adversario": 0, "pen_time_conv": 0, "pen_adv_conv": 0},
+          {"resultado": "E", "placar": "0 x 0 Mirassol", "data": "2025-11-01", "local": "fora", "vermelhos_time": 0, "vermelhos_adversario": 0, "penaltis_time": 0, "penaltis_adversario": 0, "pen_time_conv": 0, "pen_adv_conv": 0}
+        ]
+      },
+      "noticias": {
+        "Corinthians": "Fonte: GE https://ge.globo.com/futebol/times/corinthians/",
+        "Botafogo RJ": "Fonte: GE https://ge.globo.com/futebol/times/botafogo/"
       }
     }
   ]

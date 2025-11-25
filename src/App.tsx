@@ -16,7 +16,9 @@ type Partida = {
   ultimos: UltimosPorTime;
   campeonato?: string;
   rodada?: number;
-  linhas?: { golsPadrao?: number; bttsDisponivel?: boolean };
+  estadio?: string;
+  cidade?: string;
+  noticias?: { [team: string]: string };
 };
 
 type JogosPorDia = {
@@ -32,6 +34,16 @@ type HistoricoItem = {
   data: string;
   // opcional: indica se o time jogou em casa ou fora
   local?: "casa" | "fora";
+  penaltis_time?: number;
+  penaltis_adversario?: number;
+  vermelhos_time?: number;
+  vermelhos_adversario?: number;
+  cartaoVermelho?: boolean;
+  penalti?: boolean;
+  pen_time_conv?: number;
+  pen_time_nao?: number;
+  pen_adv_conv?: number;
+  pen_adv_nao?: number;
 };
 
 type UltimosPorTime = {
@@ -465,17 +477,21 @@ const styles: { [key: string]: React.CSSProperties } = {
     fontSize: "0.92rem",
     textTransform: "uppercase",
   },
+  histSummaryRow: {
+    display: "flex",
+    gap: 8,
+    flexWrap: "wrap" as const,
+    margin: "4px 0 8px",
+  },
   ultimosList: {
     paddingLeft: 0,
-    margin: 0,
-    maxHeight: 160,
-    overflowY: "auto",
+    margin: "8px 0 0",
     color: "#C4C8D2",
     fontSize: "0.86rem",
     listStyleType: "none",
   },
   ultimosListItem: {
-    marginBottom: 4,
+    marginBottom: 8,
     display: "flex",
     alignItems: "center",
     gap: 6,
@@ -490,6 +506,41 @@ const styles: { [key: string]: React.CSSProperties } = {
     color: "#C7D0E0",
     fontWeight: 800,
   },
+  historicoDate: {
+    display: "inline-block",
+    marginRight: 5,
+    color: "#8A90A3",
+    fontWeight: 700,
+    fontSize: ".84rem",
+  },
+  historicoFlag: {
+    display: "inline-block",
+    padding: "2px 6px",
+    borderRadius: 8,
+    fontSize: "0.74rem",
+    fontWeight: 800,
+    border: "1px solid #2F3648",
+  },
+  histFlagCard: {
+    background: "#3B1E22",
+    color: "#FF5252",
+  },
+  histFlagPen: {
+    background: "#1E2E3B",
+    color: "#66D9EF",
+  },
+  noticiaTitle: {
+    marginTop: 8,
+    color: "#5AD2F6",
+    fontWeight: 800,
+    fontSize: "0.95rem",
+  },
+  noticiaText: {
+    margin: "4px 0 8px",
+    color: "#A9B6C9",
+    fontSize: ".9rem",
+    fontWeight: 600,
+  },
   historicoLocalPill: {
     display: "inline-flex",
     alignItems: "center",
@@ -500,6 +551,22 @@ const styles: { [key: string]: React.CSSProperties } = {
     border: "1px solid #3B4357",
     background: "#2A3142",
     color: "#C9D2E3",
+  },
+  historicoEventList: {
+    margin: "4px 0 0",
+    paddingLeft: 18,
+    color: "#A9B6C9",
+    fontSize: ".82rem",
+  },
+  historicoEventItem: {
+    marginBottom: 4,
+  },
+  historicoItemBox: {
+    width: "100%",
+    padding: "10px",
+    borderRadius: 10,
+    border: "1px solid #2F3648",
+    background: "#1A2130",
   },
   // Cores dos Emojis para contraste
   emojiV: { color: "#4CAF50", fontWeight: 700, minWidth: 20, display: "inline-block" },
@@ -773,7 +840,7 @@ const makeResponsiveStyles = (width: number): Styles => {
     s.selectHelp.marginTop = 10;
     s.historicoTime.minWidth = 200;
     s.historicoTime.flex = "1 1 200px";
-    s.ultimosList.maxHeight = 140;
+    
   } else if (width <= 480) {
     s.header.padding = "18px";
     s.h1.fontSize = "clamp(1.6rem, 5.2vw, 2rem)";
@@ -912,6 +979,32 @@ const CardJogo: React.FC<CardJogoProps> = ({
 }) => {
   const times: [string, string] = [jogo.times[0].nome, jogo.times[1].nome];
   const ultimos: UltimosPorTime = jogo.ultimos || {};
+  const ultimosTime1 = (ultimos[times[0]] || []);
+  const ultimosTime2 = (ultimos[times[1]] || []);
+
+  const dateDesc = (a: { data: string }, b: { data: string }) => {
+    const da = new Date(a.data).getTime();
+    const db = new Date(b.data).getTime();
+    return db - da;
+  };
+  const ult1Sorted = [...ultimosTime1].sort(dateDesc).slice(0, 5);
+  const ult2Sorted = [...ultimosTime2].sort(dateDesc).slice(0, 5);
+
+  const renderNoticia = (text: string) => {
+    const m = text.match(/https?:\/\/\S+/);
+    if (!m) return text;
+    const url = m[0];
+    const idx = text.indexOf(url);
+    const before = text.slice(0, idx);
+    const after = text.slice(idx + url.length);
+    return (
+      <>
+        {before}
+        <a href={url} target="_blank" rel="noopener noreferrer" style={{ color: "#5AD2F6", textDecoration: "underline" }}>{url}</a>
+        {after}
+      </>
+    );
+  };
 
   const palpiteAtual = formData[jogoKey];
 
@@ -936,6 +1029,12 @@ const CardJogo: React.FC<CardJogoProps> = ({
                   {jogo.campeonato && typeof jogo.rodada === "number" ? " • " : ""}
                   {typeof jogo.rodada === "number" ? `Rodada ${jogo.rodada}` : ""}
                 </span>
+              )}
+              {jogo.estadio && (
+                <span style={styles.scoreChip}>Estádio: {jogo.estadio}</span>
+              )}
+              {jogo.cidade && (
+                <span style={styles.scoreChip}>Cidade: {jogo.cidade}</span>
               )}
               {/* Chips de sugestão removidos (Linha/BTTS) conforme solicitado */}
             </div>
@@ -1070,39 +1169,83 @@ const CardJogo: React.FC<CardJogoProps> = ({
             <h3 style={styles.ultimosTitle}>
               {jogo.times[0].nome} ({jogo.times[0].posicao}º) Últimos Jogos:
             </h3>
+            
             <ul style={styles.ultimosList}>
-              {(ultimos[times[0]] || []).map((item, i) => (
+              {ult1Sorted.map((item, i) => (
                 <li key={i} style={styles.ultimosListItem}>
+                  <div style={styles.historicoItemBox}>
                   <span style={getEmojiStyle(item.resultado)}>
                     {emojiResultado(item.resultado)}
                   </span>
-                  <span style={{ minWidth: 50 }}>{normalizarDataCurta(item.data)}</span>
+                  
                   {(() => {
                     const p = parsePlacarItem(item.placar);
-                    const isFora = item.local === "fora";
-                    const marcador = isFora ? "@" : "vs";
                     return (
                       <>
-                        {item.local && (
-                          <span style={styles.historicoLocalPill}>{isFora ? "Fora" : "Casa"}</span>
-                        )}
-                        <span style={styles.historicoOpp}>
-                          {marcador} {p.adversario}
-                        </span>
+                        <span style={styles.historicoDate}>{normalizarDataCurta(item.data)} </span>
                         <span style={styles.historicoScore}>
                           {Number.isNaN(p.golsPro) || Number.isNaN(p.golsContra)
-                            ? item.placar
-                            : `${p.golsPro}–${p.golsContra}`}
+                            ? `${times[0]} ${item.placar}`
+                            : `${times[0]} ${p.golsPro} x ${p.golsContra} ${p.adversario}`}
                         </span>
+                        {(() => {
+                          const vt = (item.vermelhos_time ?? (item.cartaoVermelho ? 1 : 0)) || 0;
+                          const va = (item.vermelhos_adversario ?? 0) || 0;
+                          const pt = (item.penaltis_time ?? (item.penalti ? 1 : 0)) || 0;
+                          const pa = (item.penaltis_adversario ?? 0) || 0;
+                          const ptc = item.pen_time_conv;
+                          const ptn = item.pen_time_nao;
+                          const pac = item.pen_adv_conv;
+                          const pan = item.pen_adv_nao;
+                          const has = vt + va + pt + pa > 0;
+                          if (!has) return null;
+                          return (
+                            <ul style={styles.historicoEventList}>
+                              {vt > 0 && (
+                                <li style={styles.historicoEventItem}>Cartões vermelhos ({times[0]}): {vt}</li>
+                              )}
+                              {va > 0 && (
+                                <li style={styles.historicoEventItem}>Cartões vermelhos ({p.adversario}): {va}</li>
+                              )}
+                              {pt > 0 && (
+                                <li style={styles.historicoEventItem}>Pênaltis ({times[0]}): {pt}
+                                  {ptc !== undefined && (
+                                    <> — convertidos: {ptc}</>
+                                  )}
+                                  {ptn !== undefined && (
+                                    <> — não: {ptn}</>
+                                  )}
+                                </li>
+                              )}
+                              {pa > 0 && (
+                                <li style={styles.historicoEventItem}>Pênaltis ({p.adversario}): {pa}
+                                  {pac !== undefined && (
+                                    <> — convertidos: {pac}</>
+                                  )}
+                                  {pan !== undefined && (
+                                    <> — não: {pan}</>
+                                  )}
+                                </li>
+                              )}
+                            </ul>
+                          );
+                        })()}
                       </>
                     );
                   })()}
+                  </div>
                 </li>
               ))}
               {(ultimos[times[0]] || []).length === 0 && (
                 <li style={{ color: "#6C7383" }}>Sem dados recentes.</li>
               )}
             </ul>
+            {jogo.noticias?.[times[0]] && (
+              <div>
+                <div style={styles.noticiaTitle}>Notícia — {times[0]}:</div>
+                <div style={styles.noticiaText}>{renderNoticia(jogo.noticias[times[0]])}</div>
+              </div>
+            )}
           </div>
 
           {/* Histórico Time 2 */}
@@ -1110,39 +1253,83 @@ const CardJogo: React.FC<CardJogoProps> = ({
             <h3 style={styles.ultimosTitle}>
               {jogo.times[1].nome} ({jogo.times[1].posicao}º) Últimos Jogos:
             </h3>
+            
             <ul style={styles.ultimosList}>
-              {(ultimos[times[1]] || []).map((item, i) => (
+              {ult2Sorted.map((item, i) => (
                 <li key={i} style={styles.ultimosListItem}>
+                  <div style={styles.historicoItemBox}>
                   <span style={getEmojiStyle(item.resultado)}>
                     {emojiResultado(item.resultado)}
                   </span>
-                  <span style={{ minWidth: 50 }}>{normalizarDataCurta(item.data)}</span>
+                  
                   {(() => {
                     const p = parsePlacarItem(item.placar);
-                    const isFora = item.local === "fora";
-                    const marcador = isFora ? "@" : "vs";
                     return (
                       <>
-                        {item.local && (
-                          <span style={styles.historicoLocalPill}>{isFora ? "Fora" : "Casa"}</span>
-                        )}
-                        <span style={styles.historicoOpp}>
-                          {marcador} {p.adversario}
-                        </span>
+                        <span style={styles.historicoDate}>{normalizarDataCurta(item.data)} </span>
                         <span style={styles.historicoScore}>
                           {Number.isNaN(p.golsPro) || Number.isNaN(p.golsContra)
-                            ? item.placar
-                            : `${p.golsPro}–${p.golsContra}`}
+                            ? `${times[1]} ${item.placar}`
+                            : `${times[1]} ${p.golsPro} x ${p.golsContra} ${p.adversario}`}
                         </span>
+                        {(() => {
+                          const vt = (item.vermelhos_time ?? (item.cartaoVermelho ? 1 : 0)) || 0;
+                          const va = (item.vermelhos_adversario ?? 0) || 0;
+                          const pt = (item.penaltis_time ?? (item.penalti ? 1 : 0)) || 0;
+                          const pa = (item.penaltis_adversario ?? 0) || 0;
+                          const ptc = item.pen_time_conv;
+                          const ptn = item.pen_time_nao;
+                          const pac = item.pen_adv_conv;
+                          const pan = item.pen_adv_nao;
+                          const has = vt + va + pt + pa > 0;
+                          if (!has) return null;
+                          return (
+                            <ul style={styles.historicoEventList}>
+                              {vt > 0 && (
+                                <li style={styles.historicoEventItem}>Cartões vermelhos ({times[1]}): {vt}</li>
+                              )}
+                              {va > 0 && (
+                                <li style={styles.historicoEventItem}>Cartões vermelhos ({p.adversario}): {va}</li>
+                              )}
+                              {pt > 0 && (
+                                <li style={styles.historicoEventItem}>Pênaltis ({times[1]}): {pt}
+                                  {ptc !== undefined && (
+                                    <> — convertidos: {ptc}</>
+                                  )}
+                                  {ptn !== undefined && (
+                                    <> — não: {ptn}</>
+                                  )}
+                                </li>
+                              )}
+                              {pa > 0 && (
+                                <li style={styles.historicoEventItem}>Pênaltis ({p.adversario}): {pa}
+                                  {pac !== undefined && (
+                                    <> — convertidos: {pac}</>
+                                  )}
+                                  {pan !== undefined && (
+                                    <> — não: {pan}</>
+                                  )}
+                                </li>
+                              )}
+                            </ul>
+                          );
+                        })()}
                       </>
                     );
                   })()}
+                  </div>
                 </li>
               ))}
               {(ultimos[times[1]] || []).length === 0 && (
                 <li style={{ color: "#6C7383" }}>Sem dados recentes.</li>
               )}
             </ul>
+            {jogo.noticias?.[times[1]] && (
+              <div>
+                <div style={styles.noticiaTitle}>Notícia — {times[1]}:</div>
+                <div style={styles.noticiaText}>{renderNoticia(jogo.noticias[times[1]])}</div>
+              </div>
+            )}
           </div>
         </div>
 
@@ -1160,8 +1347,6 @@ export default function App() {
   const [formData, setFormData] = useState<{ [key: string]: EscolhaUsuario }>({});
   const [statusEnvio, setStatusEnvio] = useState<"ocioso" | "enviando" | "sucesso" | "erro">("ocioso");
   const [nomeUsuario, setNomeUsuario] = useState("");
-  const [abertoKey, setAbertoKey] = useState<string | null>(null);
-  const [todosAbertos, setTodosAbertos] = useState<boolean>(false);
   const [viewportWidth, setViewportWidth] = useState<number>(typeof window !== 'undefined' ? window.innerWidth : 1024);
 
   useEffect(() => {
@@ -1172,17 +1357,19 @@ export default function App() {
 
   const rstyles = makeResponsiveStyles(viewportWidth);
 
+  const todasPartidas = Object.entries(jogos).flatMap(([dia, partidas]) =>
+    partidas.map((jogo) => {
+      const key = `${dia}-${jogo.hora}-${jogo.times[0].nome}-${jogo.times[1].nome}`;
+      const label = `${formatarDataPt(dia)}, ${jogo.hora} — ${jogo.times[0].nome} x ${jogo.times[1].nome}`;
+      return { dia, key, jogo, label };
+    })
+  );
+  const [selectedKey, setSelectedKey] = useState<string>(todasPartidas[0]?.key || "");
+  const selecionada = todasPartidas.find((p) => p.key === selectedKey);
+
   const FORM_ENDPOINT = "https://formspree.io/f/xanllngo"; // Substitua pelo seu endpoint Formspree
 
-  const toggleAccordion = (key: string) => {
-    setAbertoKey(key === abertoKey ? null : key);
-  };
-
-  const toggleTodos = () => {
-    setTodosAbertos((prev) => !prev);
-    // Quando abrir todos, limpar seleção individual para não conflitar visualmente
-    if (!todosAbertos) setAbertoKey(null);
-  };
+  
 
   const handleChange = (
     dia: string,
@@ -1334,9 +1521,8 @@ export default function App() {
                   <div style={rstyles.warningTitle}>Atenção</div>
                   <ul style={rstyles.infoList}>
                     <li>Escolha um mercado: <strong>Resultado</strong> ou <strong>Dupla Chance</strong> (apenas um).</li>
-                    <li>Opcional: adicione <strong>Gols</strong>.</li>
-                    <li>Não é obrigatório selecionar todos os jogos/mercados; isso impacta o valor final.</li>
-                    <li>A <strong>Posição</strong> atual no Brasileirão (ex.: 1º) aparece ao lado do nome do time.</li>
+                    <li>E/ou o mercado de <strong>Gols</strong>.</li>
+                    <li>Não é obrigatório selecionar todos os jogos e mercados, mas impacta o valor final.</li>
                   </ul>
                 </div>
               </header>
@@ -1355,35 +1541,41 @@ export default function App() {
                   />
                 </label>
               </div>
+              <div style={styles.nomeBox}>
+                <label htmlFor="jogoSelecionado" style={rstyles.selectWrapper}>
+                  <span style={rstyles.selectLabelText}>Jogo:</span>
+                  <select
+                    id="jogoSelecionado"
+                    style={rstyles.select}
+                    value={selectedKey}
+                    onChange={(e) => setSelectedKey(e.target.value)}
+                  >
+                    {todasPartidas.map((p) => (
+                      <option key={p.key} value={p.key}>
+                        {p.label}
+                      </option>
+                    ))}
+                  </select>
+                </label>
+              </div>
             </aside>
             <section style={rstyles.contentPanel}>
-              <div style={rstyles.expandControls}>
-                <button type="button" style={rstyles.expandButton} onClick={toggleTodos}>
-                  {todosAbertos ? "Recolher todos os jogos" : "Expandir todos os jogos"}
-                </button>
-              </div>
-              {Object.entries(jogos).map(([dia, partidas]) => (
-                <section key={dia}>
-            <h2 style={styles.sectionTitle}>{formatarDataPt(dia)}</h2>
-                  {partidas.map((jogo: Partida) => {
-                    const timesNome: [string, string] = [jogo.times[0].nome, jogo.times[1].nome];
-                    const key = `${dia}-${jogo.hora}-${timesNome[0]}-${timesNome[1]}`;
-                    return (
-                      <CardJogo
-                        key={key}
-                        jogo={jogo}
-                        dia={dia}
-                        jogoKey={key}
-                        formData={formData}
-                        handleChange={handleChange}
-                        isAberto={todosAbertos || key === abertoKey}
-                        toggleAccordion={() => toggleAccordion(key)}
-                        styles={rstyles}
-                      />
-                    );
-                  })}
+              {selecionada && (
+                <section key={selecionada.key}>
+                  <h2 style={styles.sectionTitle}>{formatarDataPt(selecionada.dia)}</h2>
+                  <CardJogo
+                    key={selecionada.key}
+                    jogo={selecionada.jogo}
+                    dia={selecionada.dia}
+                    jogoKey={selecionada.key}
+                    formData={formData}
+                    handleChange={handleChange}
+                    isAberto={true}
+                    toggleAccordion={() => {}}
+                    styles={rstyles}
+                  />
                 </section>
-              ))}
+              )}
               {statusEnvio === "sucesso" && (
                 <div style={styles.formFeedback}>✅ Palpites enviados com sucesso!</div>
               )}
